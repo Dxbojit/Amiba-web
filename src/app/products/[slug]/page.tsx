@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import {
   products,
   getProductBySlug,
@@ -24,12 +25,13 @@ export function generateStaticParams() {
   }));
 }
 
-export function generateMetadata({
+export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
-}): Metadata {
-  const product = getProductBySlug(params.slug);
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const product = getProductBySlug(slug);
   if (!product) {
     return { title: "Product Not Found" };
   }
@@ -45,12 +47,13 @@ export function generateMetadata({
   };
 }
 
-export default function ProductDetailPage({
+export default async function ProductDetailPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const product = getProductBySlug(params.slug);
+  const { slug } = await params;
+  const product = getProductBySlug(slug);
 
   if (!product) {
     return (
@@ -119,8 +122,18 @@ export default function ProductDetailPage({
             <div className="lg:col-span-2">
               <SectionReveal>
                 {/* Product image */}
-                <div className="w-full aspect-[4/3] rounded-2xl bg-gradient-to-br from-mist to-paper mb-8 flex items-center justify-center border border-mist">
-                  <Package size={80} className="text-slate/20" />
+                <div className="w-full aspect-[4/3] rounded-2xl bg-gradient-to-br from-mist to-paper mb-8 flex items-center justify-center border border-mist relative overflow-hidden">
+                  {product.image ? (
+                    <Image
+                      src={product.image}
+                      alt={product.name}
+                      fill
+                      className="object-contain p-8"
+                      priority
+                    />
+                  ) : (
+                    <Package size={80} className="text-slate/20" />
+                  )}
                 </div>
 
                 {/* Category tag */}

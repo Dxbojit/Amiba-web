@@ -2,6 +2,7 @@
 
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
@@ -29,14 +30,15 @@ export function Navbar() {
         <nav className="max-w-7xl mx-auto px-6 lg:px-8 h-20 flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-10 h-10 rounded-xl bg-signal-teal flex items-center justify-center">
-              <span className="text-white font-bold text-lg font-[var(--font-display)]">
-                A
-              </span>
+            <div className="relative w-36 h-12">
+              <Image
+                src="/images/logo.png"
+                alt="AMIBA"
+                fill
+                className="object-contain object-left"
+                priority
+              />
             </div>
-            <span className="text-display-md !text-xl font-bold text-ink tracking-tight">
-              AMIBA
-            </span>
           </Link>
 
           {/* Desktop Nav */}

@@ -2,6 +2,7 @@
 
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
 import type { Product } from "@/data/products";
 import { ArrowUpRight, Package } from "lucide-react";
@@ -60,9 +61,18 @@ export function ProductCard({ product }: ProductCardProps) {
           <div className="absolute -inset-1 bg-signal-teal/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl" />
 
           <div className="relative z-10">
-            {/* Product image placeholder */}
-            <div className="w-full aspect-square rounded-xl bg-gradient-to-br from-mist to-paper mb-4 flex items-center justify-center overflow-hidden">
-              <Package size={48} className="text-slate/30" />
+            {/* Product image */}
+            <div className="w-full aspect-square rounded-xl bg-gradient-to-br from-mist to-paper mb-4 flex items-center justify-center overflow-hidden relative">
+              {product.image ? (
+                <Image
+                  src={product.image}
+                  alt={product.name}
+                  fill
+                  className="object-contain p-4 group-hover:scale-105 transition-transform duration-500"
+                />
+              ) : (
+                <Package size={48} className="text-slate/30" />
+              )}
             </div>
 
             {/* Category tag */}

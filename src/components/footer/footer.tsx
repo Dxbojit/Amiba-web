@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { footerNav } from "@/data/navigation";
 import {
   Phone,
@@ -21,12 +22,14 @@ export function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 rounded-xl bg-signal-teal flex items-center justify-center">
-                <span className="text-white font-bold text-lg">A</span>
+              <div className="relative w-40 h-16">
+                <Image
+                  src="/images/logo.png"
+                  alt="AMIBA Pharmaceuticals"
+                  fill
+                  className="object-contain object-left"
+                />
               </div>
-              <span className="text-xl font-bold tracking-tight font-[var(--font-display)]">
-                AMIBA
-              </span>
             </div>
             <p className="text-white/60 text-sm leading-relaxed mb-6">
               Trusted B2B pharmaceutical and medical supply partner for
