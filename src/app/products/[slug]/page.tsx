@@ -1,0 +1,251 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import {
+  products,
+  getProductBySlug,
+  getRelatedProducts,
+} from "@/data/products";
+import { ProductCard } from "@/components/products/product-card";
+import { SectionReveal } from "@/components/shared/section-reveal";
+import {
+  Shield,
+  Package,
+  ArrowLeft,
+  FileText,
+  Thermometer,
+  Clock,
+  Layers,
+  BoxesIcon,
+} from "lucide-react";
+
+export function generateStaticParams() {
+  return products.map((product) => ({
+    slug: product.slug,
+  }));
+}
+
+export function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Metadata {
+  const product = getProductBySlug(params.slug);
+  if (!product) {
+    return { title: "Product Not Found" };
+  }
+
+  return {
+    title: product.name,
+    description: product.shortDescription,
+    openGraph: {
+      title: `${product.name} | AMIBA`,
+      description: product.shortDescription,
+      type: "website",
+    },
+  };
+}
+
+export default function ProductDetailPage({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const product = getProductBySlug(params.slug);
+
+  if (!product) {
+    return (
+      <div className="pt-32 pb-24 text-center">
+        <h1 className="text-display-lg text-ink">Product not found</h1>
+        <Link href="/products" className="text-signal-teal mt-4 inline-block">
+          ← Back to products
+        </Link>
+      </div>
+    );
+  }
+
+  const related = getRelatedProducts(product);
+
+  const productSchema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.name,
+    description: product.shortDescription,
+    category: product.category,
+    brand: {
+      "@type": "Brand",
+      name: "AMIBA Healthcare",
+    },
+  };
+
+  const specs = [
+    { icon: FileText, label: "Composition", value: product.composition },
+    { icon: Layers, label: "Pack Size", value: product.packSize },
+    { icon: BoxesIcon, label: "Minimum Order Qty", value: product.moq },
+    {
+      icon: Thermometer,
+      label: "Storage Conditions",
+      value: product.storageConditions,
+    },
+    { icon: Clock, label: "Shelf Life", value: product.shelfLife },
+  ];
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(productSchema),
+        }}
+      />
+
+      {/* Breadcrumb */}
+      <section className="pt-28 pb-4 bg-paper">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <Link
+            href="/products"
+            className="inline-flex items-center gap-2 text-sm text-slate hover:text-signal-teal transition-colors"
+          >
+            <ArrowLeft size={16} />
+            Back to Products
+          </Link>
+        </div>
+      </section>
+
+      {/* Product Detail */}
+      <section className="pb-24 bg-paper">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            {/* Left: Product Info */}
+            <div className="lg:col-span-2">
+              <SectionReveal>
+                {/* Product image */}
+                <div className="w-full aspect-[4/3] rounded-2xl bg-gradient-to-br from-mist to-paper mb-8 flex items-center justify-center border border-mist">
+                  <Package size={80} className="text-slate/20" />
+                </div>
+
+                {/* Category tag */}
+                <span className="inline-block px-4 py-1.5 text-sm font-medium rounded-full bg-signal-teal/10 text-signal-teal mb-4">
+                  {product.category}
+                </span>
+
+                <h1 className="text-display-lg text-ink mb-4">
+                  {product.name}
+                </h1>
+
+                <p className="text-body-lg text-slate mb-8">
+                  {product.longDescription}
+                </p>
+
+                {/* Specifications Table */}
+                <div className="mb-12">
+                  <h2 className="text-display-md !text-xl text-ink mb-6">
+                    Specifications
+                  </h2>
+                  <div className="border border-mist rounded-xl overflow-hidden">
+                    {specs.map((spec, i) => (
+                      <div
+                        key={spec.label}
+                        className={`flex items-start gap-4 p-5 ${
+                          i !== specs.length - 1 ? "border-b border-mist" : ""
+                        }`}
+                      >
+                        <spec.icon
+                          size={20}
+                          className="text-signal-teal mt-0.5 flex-shrink-0"
+                        />
+                        <div>
+                          <p className="text-sm font-medium text-ink">
+                            {spec.label}
+                          </p>
+                          <p className="text-sm text-slate mt-1">
+                            {spec.value}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Certifications */}
+                <div>
+                  <h2 className="text-display-md !text-xl text-ink mb-6">
+                    Certifications
+                  </h2>
+                  <div className="flex flex-wrap gap-3">
+                    {product.certifications.map((cert) => (
+                      <div
+                        key={cert}
+                        className="glass-card px-5 py-3 flex items-center gap-2"
+                      >
+                        <Shield size={16} className="text-signal-teal" />
+                        <span className="text-sm font-medium text-ink">
+                          {cert}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </SectionReveal>
+            </div>
+
+            {/* Right: Sticky Sidebar CTA */}
+            <div className="lg:col-span-1">
+              <div className="lg:sticky lg:top-28">
+                <div className="glass-card p-8">
+                  <h3 className="text-display-md !text-lg text-ink mb-3">
+                    Request a Quote
+                  </h3>
+                  <p className="text-body-sm text-slate mb-6">
+                    Interested in {product.name}? Submit a quote request and our
+                    team will get back to you within 24 hours with institutional
+                    pricing.
+                  </p>
+
+                  <Link
+                    href={`/contact?product=${encodeURIComponent(product.name)}`}
+                    className="btn-capsule btn-primary w-full mb-4"
+                  >
+                    Request Quote for This Product
+                  </Link>
+
+                  <Link
+                    href="/contact"
+                    className="btn-capsule btn-secondary w-full"
+                  >
+                    General Enquiry
+                  </Link>
+
+                  <div className="mt-6 pt-6 border-t border-mist">
+                    <p className="text-xs text-slate">
+                      MOQ: <span className="font-medium text-ink">{product.moq}</span>
+                    </p>
+                    <p className="text-xs text-slate mt-2">
+                      All orders require a valid Drug License and GST
+                      registration.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Related Products */}
+          {related.length > 0 && (
+            <div className="mt-24">
+              <SectionReveal>
+                <h2 className="text-display-lg text-ink mb-8">
+                  Related Products
+                </h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {related.map((p) => (
+                    <ProductCard key={p.slug} product={p} />
+                  ))}
+                </div>
+              </SectionReveal>
+            </div>
+          )}
+        </div>
+      </section>
+    </>
+  );
+}

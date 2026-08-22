@@ -1,0 +1,285 @@
+@import "tailwindcss";
+
+/* ─── AMIBA Design System ─── */
+
+:root {
+  --ink: #0B1220;
+  --paper: #F7F9F7;
+  --clinical-navy: #10233F;
+  --signal-teal: #00B2A0;
+  --signal-teal-light: #00B2A020;
+  --pulse-coral: #FF6B4A;
+  --pulse-coral-light: #FF6B4A15;
+  --mist: #E7ECEA;
+  --slate: #5A6B72;
+  --background: var(--paper);
+  --foreground: var(--ink);
+}
+
+@theme inline {
+  --color-ink: var(--ink);
+  --color-paper: var(--paper);
+  --color-clinical-navy: var(--clinical-navy);
+  --color-signal-teal: var(--signal-teal);
+  --color-signal-teal-light: var(--signal-teal-light);
+  --color-pulse-coral: var(--pulse-coral);
+  --color-pulse-coral-light: var(--pulse-coral-light);
+  --color-mist: var(--mist);
+  --color-slate: var(--slate);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-space-grotesk);
+  --font-serif: var(--font-fraunces);
+}
+
+/* ─── Typography Scale ─── */
+
+.text-display-xl {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 5.5rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+.text-display-lg {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3.5vw, 3rem);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  font-weight: 700;
+}
+
+.text-display-md {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2.5vw, 2rem);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  font-weight: 600;
+}
+
+.text-body-lg {
+  font-family: var(--font-sans);
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+.text-body {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.text-body-sm {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.text-editorial {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 300;
+}
+
+/* ─── Capsule Button Base ─── */
+
+.btn-capsule {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  letter-spacing: 0.01em;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  cursor: pointer;
+  border: none;
+  outline: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-capsule:focus-visible {
+  outline: 2px solid var(--signal-teal);
+  outline-offset: 2px;
+}
+
+.btn-primary {
+  background: var(--pulse-coral);
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background: #e55a3a;
+  transform: scale(0.98);
+  box-shadow: 0 8px 30px rgba(255, 107, 74, 0.3);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--ink);
+  border: 1.5px solid var(--mist);
+}
+
+.btn-secondary:hover {
+  border-color: var(--signal-teal);
+  color: var(--signal-teal);
+  transform: scale(0.98);
+}
+
+.btn-teal {
+  background: var(--signal-teal);
+  color: #ffffff;
+}
+
+.btn-teal:hover {
+  background: #009e8e;
+  transform: scale(0.98);
+  box-shadow: 0 8px 30px rgba(0, 178, 160, 0.3);
+}
+
+/* ─── Molecular Pattern Background ─── */
+
+.bg-molecular {
+  background-image: url('/textures/molecular-pattern.svg');
+  background-repeat: repeat;
+  background-size: 400px 400px;
+}
+
+/* ─── Grain / Noise Overlay ─── */
+
+.grain-overlay::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ─── Glass Card ─── */
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(231, 236, 234, 0.6);
+  border-radius: 1rem;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+}
+
+.glass-card-dark {
+  background: rgba(16, 35, 63, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* ─── Scrollbar Styling ─── */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--paper);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--mist);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--slate);
+}
+
+/* ─── Selection ─── */
+
+::selection {
+  background: var(--signal-teal-light);
+  color: var(--ink);
+}
+
+/* ─── Smooth Scroll ─── */
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* ─── Reduced Motion ─── */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ─── Base Body ─── */
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Focus Ring ─── */
+
+:focus-visible {
+  outline: 2px solid var(--signal-teal);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ─── Marquee Animation ─── */
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
+}
+
+/* ─── Stat Counter Glow ─── */
+
+.stat-glow {
+  text-shadow: 0 0 40px rgba(0, 178, 160, 0.3);
+}

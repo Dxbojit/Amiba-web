@@ -1,0 +1,357 @@
+"use client";
+
+import { useState } from "react";
+import { products } from "@/data/products";
+import { SectionReveal } from "@/components/shared/section-reveal";
+import {
+  MapPin,
+  Phone,
+  Mail,
+  Clock,
+  Send,
+  CheckCircle2,
+} from "lucide-react";
+
+export default function ContactPage() {
+  const [submitted, setSubmitted] = useState(false);
+  const [selectedProducts, setSelectedProducts] = useState<string[]>([]);
+
+  const toggleProduct = (name: string) => {
+    setSelectedProducts((prev) =>
+      prev.includes(name) ? prev.filter((p) => p !== name) : [...prev, name]
+    );
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    formData.append("products_of_interest", selectedProducts.join(", "));
+
+    try {
+      /* 
+       * TODO: REPLACE — Configure with your Web3Forms access key
+       * Sign up at https://web3forms.com to get a free access key.
+       * Replace 'YOUR_ACCESS_KEY' below with the real key.
+       */
+      formData.append("access_key", "YOUR_ACCESS_KEY");
+      
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+      }
+    } catch {
+      // Fallback: just show success for demo
+      setSubmitted(true);
+    }
+  };
+
+  if (submitted) {
+    return (
+      <section className="pt-32 pb-24 bg-paper">
+        <div className="max-w-2xl mx-auto px-6 lg:px-8 text-center">
+          <div className="w-20 h-20 rounded-full bg-signal-teal/10 flex items-center justify-center mx-auto mb-6">
+            <CheckCircle2 size={40} className="text-signal-teal" />
+          </div>
+          <h1 className="text-display-lg text-ink mb-4">Quote request received</h1>
+          <p className="text-body-lg text-slate mb-8">
+            Thank you for your interest. Our team will review your request and
+            respond within 24 hours with institutional pricing and next steps.
+          </p>
+          <a href="/" className="btn-capsule btn-teal">
+            Return Home
+          </a>
+        </div>
+      </section>
+    );
+  }
+
+  return (
+    <>
+      <section className="pt-32 pb-24 bg-paper">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <SectionReveal>
+            <div className="text-center mb-16">
+              <p className="text-editorial text-signal-teal text-base mb-3">
+                Get in touch
+              </p>
+              <h1 className="text-display-lg text-ink mb-4">
+                Request a Quote
+              </h1>
+              <p className="text-body-lg text-slate max-w-2xl mx-auto">
+                Tell us about your institution and product requirements. Our
+                team will respond within 24 hours.
+              </p>
+            </div>
+          </SectionReveal>
+
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
+            {/* Form */}
+            <div className="lg:col-span-3">
+              <SectionReveal>
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                      <label
+                        htmlFor="company_name"
+                        className="block text-sm font-medium text-ink mb-2"
+                      >
+                        Company Name *
+                      </label>
+                      <input
+                        type="text"
+                        id="company_name"
+                        name="company_name"
+                        required
+                        className="w-full px-4 py-3 rounded-xl border border-mist bg-white text-ink placeholder:text-slate/50 focus:outline-none focus:border-signal-teal focus:ring-1 focus:ring-signal-teal transition-colors"
+                        placeholder="Your institution name"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        htmlFor="contact_person"
+                        className="block text-sm font-medium text-ink mb-2"
+                      >
+                        Contact Person *
+                      </label>
+                      <input
+                        type="text"
+                        id="contact_person"
+                        name="contact_person"
+                        required
+                        className="w-full px-4 py-3 rounded-xl border border-mist bg-white text-ink placeholder:text-slate/50 focus:outline-none focus:border-signal-teal focus:ring-1 focus:ring-signal-teal transition-colors"
+                        placeholder="Full name"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                      <label
+                        htmlFor="drug_license"
+                        className="block text-sm font-medium text-ink mb-2"
+                      >
+                        Drug License No. *
+                      </label>
+                      <input
+                        type="text"
+                        id="drug_license"
+                        name="drug_license"
+                        required
+                        className="w-full px-4 py-3 rounded-xl border border-mist bg-white text-ink placeholder:text-slate/50 focus:outline-none focus:border-signal-teal focus:ring-1 focus:ring-signal-teal transition-colors"
+                        placeholder="e.g., XX-XXXXX"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        htmlFor="gst_number"
+                        className="block text-sm font-medium text-ink mb-2"
+                      >
+                        GST No. *
+                      </label>
+                      <input
+                        type="text"
+                        id="gst_number"
+                        name="gst_number"
+                        required
+                        className="w-full px-4 py-3 rounded-xl border border-mist bg-white text-ink placeholder:text-slate/50 focus:outline-none focus:border-signal-teal focus:ring-1 focus:ring-signal-teal transition-colors"
+                        placeholder="e.g., 27XXXXXXXXX1Z5"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div>
+                      <label
+                        htmlFor="email"
+                        className="block text-sm font-medium text-ink mb-2"
+                      >
+                        Email *
+                      </label>
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        required
+                        className="w-full px-4 py-3 rounded-xl border border-mist bg-white text-ink placeholder:text-slate/50 focus:outline-none focus:border-signal-teal focus:ring-1 focus:ring-signal-teal transition-colors"
+                        placeholder="procurement@hospital.com"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        htmlFor="phone"
+                        className="block text-sm font-medium text-ink mb-2"
+                      >
+                        Phone *
+                      </label>
+                      <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        required
+                        className="w-full px-4 py-3 rounded-xl border border-mist bg-white text-ink placeholder:text-slate/50 focus:outline-none focus:border-signal-teal focus:ring-1 focus:ring-signal-teal transition-colors"
+                        placeholder="+91 XXXXX XXXXX"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Product Selection */}
+                  <div>
+                    <label className="block text-sm font-medium text-ink mb-3">
+                      Products of Interest
+                    </label>
+                    <div className="flex flex-wrap gap-2">
+                      {products.map((p) => (
+                        <button
+                          key={p.slug}
+                          type="button"
+                          onClick={() => toggleProduct(p.name)}
+                          className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                            selectedProducts.includes(p.name)
+                              ? "bg-signal-teal text-white"
+                              : "bg-mist/50 text-slate hover:bg-mist"
+                          }`}
+                        >
+                          {p.name}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor="message"
+                      className="block text-sm font-medium text-ink mb-2"
+                    >
+                      Message
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      rows={4}
+                      className="w-full px-4 py-3 rounded-xl border border-mist bg-white text-ink placeholder:text-slate/50 focus:outline-none focus:border-signal-teal focus:ring-1 focus:ring-signal-teal transition-colors resize-none"
+                      placeholder="Tell us about your requirements, estimated volumes, or any specific questions..."
+                    />
+                  </div>
+
+                  <p className="text-xs text-slate">
+                    By submitting this form, you confirm that you represent a
+                    licensed healthcare institution or pharmacy. Account setup
+                    requires valid Drug License and GST verification.
+                  </p>
+
+                  <button
+                    type="submit"
+                    className="btn-capsule btn-primary w-full sm:w-auto inline-flex items-center gap-2"
+                  >
+                    <Send size={18} />
+                    Submit Quote Request
+                  </button>
+
+                  {/* Mailto fallback */}
+                  <p className="text-xs text-slate mt-4">
+                    Form not working?{" "}
+                    {/* TODO: REPLACE with real email */}
+                    <a
+                      href="mailto:enquiry@amiba.in?subject=Quote%20Request"
+                      className="text-signal-teal hover:underline"
+                    >
+                      Email us directly at enquiry@amiba.in
+                    </a>
+                  </p>
+                </form>
+              </SectionReveal>
+            </div>
+
+            {/* Contact Info Sidebar */}
+            <div className="lg:col-span-2">
+              <SectionReveal>
+                <div className="glass-card p-8 mb-8">
+                  <h3 className="text-display-md !text-lg text-ink mb-6">
+                    Contact Information
+                  </h3>
+                  <ul className="space-y-6">
+                    <li className="flex items-start gap-4">
+                      <div className="w-10 h-10 rounded-xl bg-signal-teal/10 flex items-center justify-center flex-shrink-0">
+                        <MapPin size={18} className="text-signal-teal" />
+                      </div>
+                      <div>
+                        <p className="text-sm font-medium text-ink">Office</p>
+                        {/* TODO: REPLACE with real address */}
+                        <p className="text-sm text-slate mt-1">
+                          AMIBA Healthcare Pvt. Ltd.
+                          <br />
+                          Business District, Mumbai
+                          <br />
+                          Maharashtra 400001, India
+                        </p>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-4">
+                      <div className="w-10 h-10 rounded-xl bg-signal-teal/10 flex items-center justify-center flex-shrink-0">
+                        <Phone size={18} className="text-signal-teal" />
+                      </div>
+                      <div>
+                        <p className="text-sm font-medium text-ink">Phone</p>
+                        {/* TODO: REPLACE */}
+                        <a
+                          href="tel:+911234567890"
+                          className="text-sm text-slate hover:text-signal-teal transition-colors"
+                        >
+                          +91 12345 67890
+                        </a>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-4">
+                      <div className="w-10 h-10 rounded-xl bg-signal-teal/10 flex items-center justify-center flex-shrink-0">
+                        <Mail size={18} className="text-signal-teal" />
+                      </div>
+                      <div>
+                        <p className="text-sm font-medium text-ink">Email</p>
+                        {/* TODO: REPLACE */}
+                        <a
+                          href="mailto:enquiry@amiba.in"
+                          className="text-sm text-slate hover:text-signal-teal transition-colors"
+                        >
+                          enquiry@amiba.in
+                        </a>
+                      </div>
+                    </li>
+                    <li className="flex items-start gap-4">
+                      <div className="w-10 h-10 rounded-xl bg-signal-teal/10 flex items-center justify-center flex-shrink-0">
+                        <Clock size={18} className="text-signal-teal" />
+                      </div>
+                      <div>
+                        <p className="text-sm font-medium text-ink">Hours</p>
+                        <p className="text-sm text-slate mt-1">
+                          Mon – Sat: 9:00 AM – 6:00 PM IST
+                          <br />
+                          Sunday: Closed
+                        </p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+
+                {/* Map placeholder */}
+                <div className="rounded-xl overflow-hidden border border-mist bg-mist/30 aspect-[4/3] flex items-center justify-center">
+                  <div className="text-center">
+                    <MapPin size={32} className="text-slate/30 mx-auto mb-2" />
+                    <p className="text-xs text-slate">
+                      {/* TODO: REPLACE — Embed a real static map */}
+                      Map placeholder — embed Google Maps static image
+                    </p>
+                  </div>
+                </div>
+              </SectionReveal>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}

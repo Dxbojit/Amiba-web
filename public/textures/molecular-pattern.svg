@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400" fill="none" opacity="0.07">
+  <!-- Molecular line pattern - thin connections between nodes -->
+  <circle cx="50" cy="50" r="2" fill="currentColor"/>
+  <circle cx="150" cy="80" r="3" fill="currentColor"/>
+  <circle cx="280" cy="40" r="2" fill="currentColor"/>
+  <circle cx="350" cy="120" r="2.5" fill="currentColor"/>
+  <circle cx="100" cy="180" r="2" fill="currentColor"/>
+  <circle cx="220" cy="150" r="3" fill="currentColor"/>
+  <circle cx="320" cy="200" r="2" fill="currentColor"/>
+  <circle cx="60" cy="280" r="2.5" fill="currentColor"/>
+  <circle cx="180" cy="260" r="2" fill="currentColor"/>
+  <circle cx="300" cy="300" r="3" fill="currentColor"/>
+  <circle cx="380" cy="350" r="2" fill="currentColor"/>
+  <circle cx="120" cy="350" r="2.5" fill="currentColor"/>
+  <circle cx="250" cy="380" r="2" fill="currentColor"/>
+  <circle cx="40" cy="160" r="1.5" fill="currentColor"/>
+  <circle cx="370" cy="60" r="1.5" fill="currentColor"/>
+  
+  <!-- Connecting lines -->
+  <line x1="50" y1="50" x2="150" y2="80" stroke="currentColor" stroke-width="0.5"/>
+  <line x1="150" y1="80" x2="280" y2="40" stroke="currentColor" stroke-width="0.5"/>
+  <line x1="280" y1="40" x2="350" y2="120" stroke="currentColor" stroke-width="0.5"/>
+  <line x1="150" y1="80" x2="220" y2="150" stroke="currentColor" stroke-width="0.5"/>
+  <line x1="100" y1="180" x2="220" y2="150" stroke="currentColor" stroke-width="0.5"/>
+  <line x1="220" y1="150" x2="320" y2="200" stroke="currentColor" stroke-width="0.5"/>
+  <line x1="50" y1="50" x2="100" y2="180" stroke="currentColor" stroke-width="0.5"/>
+  <line x1="100" y1="180" x2="60" y2="280" stroke="currentColor" stroke-width="0.5"/>
+  <line x1="60" y1="280" x2="180" y2="260" stroke="currentColor" stroke-width="0.5"/>
+  <line x1="180" y1="260" x2="300" y2="300" stroke="currentColor" stroke-width="0.5"/>
+  <line x1="300" y1="300" x2="380" y2="350" stroke="currentColor" stroke-width="0.5"/>
+  <line x1="320" y1="200" x2="300" y2="300" stroke="currentColor" stroke-width="0.5"/>
+  <line x1="60" y1="280" x2="120" y2="350" stroke="currentColor" stroke-width="0.5"/>
+  <line x1="120" y1="350" x2="250" y2="380" stroke="currentColor" stroke-width="0.5"/>
+  <line x1="250" y1="380" x2="380" y2="350" stroke="currentColor" stroke-width="0.5"/>
+  <line x1="350" y1="120" x2="320" y2="200" stroke="currentColor" stroke-width="0.5"/>
+  <line x1="40" y1="160" x2="100" y2="180" stroke="currentColor" stroke-width="0.5"/>
+  <line x1="280" y1="40" x2="370" y2="60" stroke="currentColor" stroke-width="0.5"/>
+  <line x1="180" y1="260" x2="220" y2="150" stroke="currentColor" stroke-width="0.5"/>
+  <line x1="300" y1="300" x2="250" y2="380" stroke="currentColor" stroke-width="0.5"/>
+  
+  <!-- Hexagonal accent shapes -->
+  <polygon points="220,145 230,150 230,160 220,165 210,160 210,150" stroke="currentColor" stroke-width="0.5" fill="none"/>
+  <polygon points="300,295 308,300 308,308 300,313 292,308 292,300" stroke="currentColor" stroke-width="0.5" fill="none"/>
+</svg>
