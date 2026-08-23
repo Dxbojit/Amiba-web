@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useMotionValueEvent, useScroll, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -12,35 +12,66 @@ export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const pathname = usePathname();
-  const { scrollY } = useScroll();
+  const isHome = pathname === "/";
 
-  useMotionValueEvent(scrollY, "change", (latest) => {
-    setIsScrolled(latest > 50);
-  });
+  // Passive scroll listener with hysteresis to eliminate glitching/jittering
+  useEffect(() => {
+    let ticking = false;
+
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const top = window.scrollY;
+          // Hysteresis: activate at 30px, deactivate only below 10px
+          setIsScrolled((prev) => {
+            if (top > 30 && !prev) return true;
+            if (top < 10 && prev) return false;
+            return prev;
+          });
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    // Check initial state
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   // Close mobile menu on route change
   useEffect(() => {
     setIsMobileOpen(false);
   }, [pathname]);
 
-  // Prevent body scroll when mobile menu is open
+  // Prevent body scroll cleanly when mobile menu is open
   useEffect(() => {
     if (isMobileOpen) {
+      document.documentElement.style.overflow = "hidden";
       document.body.style.overflow = "hidden";
     } else {
+      document.documentElement.style.overflow = "";
       document.body.style.overflow = "";
     }
     return () => {
+      document.documentElement.style.overflow = "";
       document.body.style.overflow = "";
     };
   }, [isMobileOpen]);
 
+  // On non-home pages, always have a solid/blurred background for consistency
+  const showBackground = !isHome || isScrolled || isMobileOpen;
+
   return (
     <>
-      <motion.header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled || isMobileOpen
-            ? "bg-paper/80 backdrop-blur-xl border-b border-mist/60 shadow-sm"
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-200 ${
+          showBackground
+            ? "bg-paper/90 backdrop-blur-md border-b border-mist/80 shadow-xs"
             : "bg-transparent"
         }`}
       >
@@ -54,6 +85,7 @@ export function Navbar() {
                 fill
                 className="object-contain object-left"
                 priority
+                loading="eager"
               />
             </div>
           </Link>
@@ -71,6 +103,8 @@ export function Navbar() {
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                     isActive
                       ? "text-signal-teal bg-signal-teal/10"
+                      : isHome && !isScrolled
+                      ? "text-white/80 hover:text-white hover:bg-white/10"
                       : "text-slate hover:text-ink hover:bg-mist/50"
                   }`}
                 >
@@ -82,7 +116,14 @@ export function Navbar() {
 
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center gap-3">
-            <Link href="/faq" className="text-sm text-slate hover:text-ink transition-colors">
+            <Link
+              href="/faq"
+              className={`text-sm transition-colors ${
+                isHome && !isScrolled
+                  ? "text-white/80 hover:text-white"
+                  : "text-slate hover:text-ink"
+              }`}
+            >
               FAQ
             </Link>
             <Link
@@ -96,25 +137,30 @@ export function Navbar() {
           {/* Mobile Hamburger */}
           <button
             onClick={() => setIsMobileOpen(!isMobileOpen)}
-            className="lg:hidden p-2.5 -mr-2 text-ink rounded-lg active:bg-mist/50 transition-colors"
+            className={`lg:hidden p-2.5 -mr-2 rounded-lg transition-colors ${
+              isHome && !showBackground
+                ? "text-white hover:bg-white/10"
+                : "text-ink hover:bg-mist/50"
+            }`}
             aria-label={isMobileOpen ? "Close menu" : "Open menu"}
           >
             {isMobileOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </nav>
-      </motion.header>
+      </header>
 
       {/* Mobile Drawer */}
       <AnimatePresence>
         {isMobileOpen && (
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-40 bg-paper/95 backdrop-blur-xl lg:hidden pt-16 sm:pt-20"
+            className="fixed inset-0 z-40 bg-paper/98 backdrop-blur-xl lg:hidden flex flex-col pt-20 pb-8 px-6 overflow-y-auto"
+            style={{ height: "100dvh" }}
           >
-            <div className="flex flex-col items-center justify-center h-full gap-5 sm:gap-6 px-6">
+            <div className="flex flex-col items-center justify-center flex-1 gap-6 my-auto">
               {mainNav.map((link, i) => {
                 const isActive =
                   pathname === link.href ||
@@ -122,14 +168,14 @@ export function Navbar() {
                 return (
                   <motion.div
                     key={link.href}
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 15 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: i * 0.06 }}
+                    transition={{ delay: i * 0.04 }}
                   >
                     <Link
                       href={link.href}
                       onClick={() => setIsMobileOpen(false)}
-                      className={`text-xl sm:text-2xl font-medium font-[var(--font-display)] ${
+                      className={`text-2xl font-semibold font-[var(--font-display)] ${
                         isActive ? "text-signal-teal" : "text-ink"
                       }`}
                     >
@@ -139,28 +185,28 @@ export function Navbar() {
                 );
               })}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: mainNav.length * 0.06 }}
+                transition={{ delay: mainNav.length * 0.04 }}
               >
                 <Link
                   href="/faq"
                   onClick={() => setIsMobileOpen(false)}
-                  className="text-xl sm:text-2xl font-medium font-[var(--font-display)] text-ink"
+                  className="text-2xl font-semibold font-[var(--font-display)] text-ink"
                 >
                   FAQ
                 </Link>
               </motion.div>
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: (mainNav.length + 1) * 0.06 }}
-                className="mt-4"
+                transition={{ delay: (mainNav.length + 1) * 0.04 }}
+                className="mt-4 w-full max-w-xs flex justify-center"
               >
                 <Link
                   href="/contact"
                   onClick={() => setIsMobileOpen(false)}
-                  className="btn-capsule btn-teal"
+                  className="btn-capsule btn-teal w-full text-center"
                 >
                   Request a Quote
                 </Link>

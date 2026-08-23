@@ -9,7 +9,7 @@ export function Hero() {
   const prefersReducedMotion = useReducedMotion();
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-clinical-navy">
+    <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-clinical-navy">
       {/* Background molecular pattern */}
       <div className="absolute inset-0 bg-molecular opacity-30" />
 

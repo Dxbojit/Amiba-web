@@ -16,7 +16,7 @@ export function ProductGrid() {
   return (
     <div>
       {/* Filter pills */}
-      <div className="flex gap-2 mb-8 sm:mb-12 overflow-x-auto pb-2 sm:flex-wrap sm:justify-center sm:overflow-visible -mx-4 px-4 sm:mx-0 sm:px-0">
+      <div className="flex gap-2 mb-8 sm:mb-12 overflow-x-auto pb-2 sm:flex-wrap sm:justify-center sm:overflow-visible -mx-4 px-4 sm:mx-0 sm:px-0 w-full max-w-full min-w-0">
         {categories.map((cat) => (
           <button
             key={cat}

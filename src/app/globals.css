@@ -193,25 +193,30 @@
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
 }
 
-/* ─── Scrollbar Styling ─── */
+/* ─── Ultra-Subtle Scrollbar Styling ─── */
 
-@media (min-width: 768px) {
-  ::-webkit-scrollbar {
-    width: 8px;
-  }
+html {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(90, 107, 114, 0.15) transparent;
+}
 
-  ::-webkit-scrollbar-track {
-    background: var(--paper);
-  }
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
 
-  ::-webkit-scrollbar-thumb {
-    background: var(--mist);
-    border-radius: 9999px;
-  }
+::-webkit-scrollbar-track {
+  background: transparent;
+}
 
-  ::-webkit-scrollbar-thumb:hover {
-    background: var(--slate);
-  }
+::-webkit-scrollbar-thumb {
+  background: rgba(90, 107, 114, 0.15);
+  border-radius: 9999px;
+  transition: background-color 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(90, 107, 114, 0.3);
 }
 
 /* ─── Selection ─── */
@@ -253,7 +258,15 @@ html.lenis body {
   }
 }
 
-/* ─── Base Body ─── */
+/* ─── Base Body & HTML ─── */
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+  position: relative;
+  width: 100%;
+}
 
 body {
   background: var(--paper);
@@ -261,6 +274,15 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Utility to hide scrollbar on mobile horizontal scrolling containers ─── */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 /* ─── Focus Ring ─── */

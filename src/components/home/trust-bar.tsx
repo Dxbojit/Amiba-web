@@ -18,7 +18,7 @@ export function TrustBar() {
           </p>
 
           {/* Certification badges */}
-          <div className="flex items-center gap-6 overflow-x-auto pb-2">
+          <div className="flex items-center gap-3 sm:gap-6 overflow-x-auto pb-2 w-full max-w-full min-w-0 no-scrollbar">
             {badges.map((cert) => (
               <div
                 key={cert.abbreviation}
