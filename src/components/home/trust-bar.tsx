@@ -7,9 +7,9 @@ export function TrustBar() {
   const badges = certifications.slice(0, 5);
 
   return (
-    <section className="py-12 bg-paper border-b border-mist">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+    <section className="py-8 sm:py-12 bg-paper border-b border-mist">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-8">
           {/* Trust statement */}
           <p className="text-slate text-sm text-center md:text-left">
             {/* TODO: REPLACE — Use real numbers when available */}

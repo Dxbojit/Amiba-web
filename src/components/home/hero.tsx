@@ -20,12 +20,12 @@ export function Hero() {
       {!prefersReducedMotion && (
         <>
           <motion.div
-            className="absolute top-1/4 right-[15%] w-32 h-16 rounded-full bg-signal-teal/10 border border-signal-teal/20 blur-sm"
+            className="absolute top-1/4 right-[15%] w-32 h-16 rounded-full bg-signal-teal/10 border border-signal-teal/20 blur-sm hidden md:block"
             animate={{ y: [0, -20, 0], rotate: [0, 5, 0] }}
             transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
           />
           <motion.div
-            className="absolute bottom-1/3 left-[10%] w-24 h-12 rounded-full bg-pulse-coral/10 border border-pulse-coral/15 blur-sm"
+            className="absolute bottom-1/3 left-[10%] w-24 h-12 rounded-full bg-pulse-coral/10 border border-pulse-coral/15 blur-sm hidden md:block"
             animate={{ y: [0, 15, 0], rotate: [0, -3, 0] }}
             transition={{
               duration: 6,
@@ -35,7 +35,7 @@ export function Hero() {
             }}
           />
           <motion.div
-            className="absolute top-[60%] right-[30%] w-20 h-10 rounded-full bg-white/5 border border-white/10 blur-[1px]"
+            className="absolute top-[60%] right-[30%] w-20 h-10 rounded-full bg-white/5 border border-white/10 blur-[1px] hidden md:block"
             animate={{ y: [0, -12, 0], x: [0, 8, 0] }}
             transition={{
               duration: 10,
@@ -67,7 +67,7 @@ export function Hero() {
       <div className="grain-overlay absolute inset-0 pointer-events-none" />
 
       {/* Content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-8 text-center pt-24">
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20 sm:pt-24">
         <motion.p
           className="text-editorial text-signal-teal text-lg md:text-xl mb-6"
           initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
@@ -84,7 +84,8 @@ export function Hero() {
           transition={{ duration: 0.7, delay: 0.4 }}
         >
           Pharmaceutical supply
-          <br />
+          <br className="hidden sm:inline" />
+          {" "}
           <span className="text-signal-teal">you can trust</span>
         </motion.h1>
 

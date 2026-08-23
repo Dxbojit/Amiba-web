@@ -15,13 +15,13 @@ export function CTABanner({
   ctaHref = "/contact",
 }: CTABannerProps) {
   return (
-    <section className="relative py-20 overflow-hidden">
+    <section className="relative py-14 sm:py-20 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-r from-pulse-coral to-[#ff8a6a]" />
       <div className="grain-overlay absolute inset-0 pointer-events-none" />
 
       {/* Content */}
-      <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 text-center">
+      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 className="text-display-lg text-white mb-4">{heading}</h2>
         <p className="text-white/80 text-lg mb-8 max-w-2xl mx-auto">
           {subheading}

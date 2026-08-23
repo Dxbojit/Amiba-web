@@ -82,8 +82,8 @@ export default function ForPartnersPage() {
   return (
     <>
       {/* Hero */}
-      <section className="pt-32 pb-16 bg-paper">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <section className="pt-24 sm:pt-32 pb-12 sm:pb-16 bg-paper">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionReveal>
             <div className="max-w-3xl">
               <p className="text-editorial text-signal-teal text-base mb-3">
@@ -104,8 +104,8 @@ export default function ForPartnersPage() {
       </section>
 
       {/* How It Works Timeline */}
-      <section className="py-20 bg-mist/30">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <section className="py-14 sm:py-20 bg-mist/30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionReveal>
             <div className="text-center mb-16">
               <h2 className="text-display-lg text-ink">How it works</h2>
@@ -113,7 +113,7 @@ export default function ForPartnersPage() {
           </SectionReveal>
 
           <SectionReveal stagger>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
               {steps.map((s, i) => (
                 <SectionRevealChild key={s.step}>
                   <div className="relative">
@@ -121,7 +121,7 @@ export default function ForPartnersPage() {
                     {i < steps.length - 1 && (
                       <div className="hidden lg:block absolute top-10 left-full w-full h-px bg-mist z-0" />
                     )}
-                    <div className="glass-card p-8 relative z-10 h-full">
+                    <div className="glass-card p-6 sm:p-8 relative z-10 h-full">
                       <div className="w-12 h-12 rounded-xl bg-signal-teal/10 flex items-center justify-center mb-5">
                         <s.icon size={24} className="text-signal-teal" strokeWidth={1.5} />
                       </div>
@@ -142,8 +142,8 @@ export default function ForPartnersPage() {
       </section>
 
       {/* Pricing Tiers */}
-      <section className="py-20 bg-paper">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <section className="py-14 sm:py-20 bg-paper">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionReveal>
             <div className="text-center mb-12">
               <p className="text-editorial text-signal-teal text-base mb-3">
@@ -156,8 +156,8 @@ export default function ForPartnersPage() {
           </SectionReveal>
 
           <SectionReveal>
-            <div className="overflow-x-auto">
-              <table className="w-full border-collapse">
+            <div className="overflow-x-auto -mx-4 sm:mx-0">
+              <table className="w-full border-collapse min-w-[600px]">
                 <thead>
                   <tr className="border-b-2 border-mist">
                     <th className="text-left py-4 px-6 text-sm font-semibold text-ink">
@@ -206,10 +206,10 @@ export default function ForPartnersPage() {
       </section>
 
       {/* Coverage Map Placeholder */}
-      <section className="py-20 bg-clinical-navy relative overflow-hidden">
+      <section className="py-14 sm:py-20 bg-clinical-navy relative overflow-hidden">
         <div className="absolute inset-0 bg-molecular opacity-15" />
         <div className="grain-overlay absolute inset-0 pointer-events-none" />
-        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionReveal>
             <div className="text-center mb-12">
               <p className="text-editorial text-signal-teal text-base mb-3">
@@ -224,7 +224,7 @@ export default function ForPartnersPage() {
             </div>
 
             {/* Stylized coverage stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8">
               {[
                 { value: "28", label: "States" },
                 { value: "8", label: "Union Territories" },
@@ -232,7 +232,7 @@ export default function ForPartnersPage() {
                 { value: "500+", label: "Delivery Points" },
               ].map((stat) => (
                 <div key={stat.label} className="text-center">
-                  <div className="text-4xl font-bold text-signal-teal font-[var(--font-display)] mb-1">
+                  <div className="text-3xl sm:text-4xl font-bold text-signal-teal font-[var(--font-display)] mb-1">
                     {stat.value}
                   </div>
                   <p className="text-white/50 text-sm">{stat.label}</p>
@@ -244,8 +244,8 @@ export default function ForPartnersPage() {
       </section>
 
       {/* Onboarding Checklist */}
-      <section className="py-20 bg-paper">
-        <div className="max-w-3xl mx-auto px-6 lg:px-8">
+      <section className="py-14 sm:py-20 bg-paper">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionReveal>
             <div className="text-center mb-12">
               <p className="text-editorial text-signal-teal text-base mb-3">
@@ -257,7 +257,7 @@ export default function ForPartnersPage() {
               </p>
             </div>
 
-            <div className="glass-card p-8">
+            <div className="glass-card p-6 sm:p-8">
               <ul className="space-y-4">
                 {checklist.map((item) => (
                   <li key={item} className="flex items-start gap-3">

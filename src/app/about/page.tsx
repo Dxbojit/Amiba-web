@@ -36,8 +36,8 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero */}
-      <section className="pt-32 pb-20 bg-paper">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <section className="pt-24 sm:pt-32 pb-16 sm:pb-20 bg-paper">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionReveal>
             <div className="max-w-3xl">
               <p className="text-editorial text-signal-teal text-base mb-3">Our story</p>
@@ -58,12 +58,12 @@ export default function AboutPage() {
       </section>
 
       {/* Mission + Vision */}
-      <section className="py-20 bg-mist/30">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <section className="py-14 sm:py-20 bg-mist/30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionReveal stagger>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
               <SectionRevealChild>
-                <div className="glass-card p-10 h-full">
+                <div className="glass-card p-6 sm:p-10 h-full">
                   <p className="text-editorial text-signal-teal text-sm mb-3">Mission</p>
                   <h2 className="text-display-md text-ink mb-4">
                     Making quality medicine accessible at institutional scale
@@ -77,7 +77,7 @@ export default function AboutPage() {
                 </div>
               </SectionRevealChild>
               <SectionRevealChild>
-                <div className="glass-card p-10 h-full">
+                <div className="glass-card p-6 sm:p-10 h-full">
                   <p className="text-editorial text-signal-teal text-sm mb-3">Vision</p>
                   <h2 className="text-display-md text-ink mb-4">
                     The most trusted name in B2B pharma supply
@@ -95,8 +95,8 @@ export default function AboutPage() {
       </section>
 
       {/* Values */}
-      <section className="py-20 bg-paper">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <section className="py-14 sm:py-20 bg-paper">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionReveal>
             <div className="text-center mb-12">
               <p className="text-editorial text-signal-teal text-base mb-3">Our values</p>
@@ -122,10 +122,10 @@ export default function AboutPage() {
       </section>
 
       {/* Timeline */}
-      <section className="py-20 bg-clinical-navy relative overflow-hidden">
+      <section className="py-14 sm:py-20 bg-clinical-navy relative overflow-hidden">
         <div className="absolute inset-0 bg-molecular opacity-15" />
         <div className="grain-overlay absolute inset-0 pointer-events-none" />
-        <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionReveal>
             <div className="text-center mb-16">
               <p className="text-editorial text-signal-teal text-base mb-3">Our journey</p>
@@ -136,17 +136,17 @@ export default function AboutPage() {
           {/* Timeline items */}
           <div className="relative">
             {/* Vertical line */}
-            <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-white/10 transform md:-translate-x-px" />
+            <div className="absolute left-6 sm:left-8 md:left-1/2 top-0 bottom-0 w-px bg-white/10 transform md:-translate-x-px" />
 
             <div className="space-y-12">
               {milestones.map((m, i) => (
                 <SectionReveal key={m.year}>
                   <div className={`relative flex items-start gap-8 ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
                     {/* Dot */}
-                    <div className="absolute left-8 md:left-1/2 w-4 h-4 rounded-full bg-signal-teal border-4 border-clinical-navy transform -translate-x-2 md:-translate-x-2 mt-1" />
+                    <div className="absolute left-6 sm:left-8 md:left-1/2 w-4 h-4 rounded-full bg-signal-teal border-4 border-clinical-navy transform -translate-x-2 md:-translate-x-2 mt-1" />
 
                     {/* Content */}
-                    <div className={`ml-20 md:ml-0 md:w-[calc(50%-2rem)] ${i % 2 === 0 ? 'md:pr-12 md:text-right' : 'md:pl-12'}`}>
+                    <div className={`ml-14 sm:ml-20 md:ml-0 md:w-[calc(50%-2rem)] ${i % 2 === 0 ? 'md:pr-12 md:text-right' : 'md:pl-12'}`}>
                       <span className="text-signal-teal font-bold text-lg font-[var(--font-display)]">{m.year}</span>
                       <h3 className="text-white text-xl font-semibold mt-1 font-[var(--font-display)]">{m.title}</h3>
                       <p className="text-white/60 text-sm mt-2">{m.description}</p>
@@ -160,8 +160,8 @@ export default function AboutPage() {
       </section>
 
       {/* Leadership */}
-      <section className="py-20 bg-paper">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <section className="py-14 sm:py-20 bg-paper">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionReveal>
             <div className="text-center mb-12">
               <p className="text-editorial text-signal-teal text-base mb-3">Leadership</p>
@@ -169,7 +169,7 @@ export default function AboutPage() {
             </div>
           </SectionReveal>
           <SectionReveal stagger>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-8">
               {leadership.map((l) => (
                 <SectionRevealChild key={l.initials}>
                   <div className="text-center">

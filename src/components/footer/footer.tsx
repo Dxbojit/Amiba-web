@@ -16,13 +16,13 @@ export function Footer() {
       {/* Grain overlay */}
       <div className="grain-overlay absolute inset-0 pointer-events-none" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 pt-16 pb-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 pb-8">
         {/* Main footer grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 mb-8 sm:mb-12">
           {/* Brand Column */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-2 mb-4">
-              <div className="relative w-40 h-16">
+              <div className="relative w-32 sm:w-40 h-12 sm:h-16">
                 <Image
                   src="/images/logo.png"
                   alt="AMIBA Pharmaceuticals"

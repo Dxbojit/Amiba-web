@@ -9,8 +9,8 @@ export function Testimonials() {
   const doubled = [...testimonials, ...testimonials];
 
   return (
-    <section className="py-24 bg-paper overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 mb-12">
+    <section className="py-16 sm:py-24 bg-paper overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-8 sm:mb-12">
         <SectionReveal>
           <div className="text-center">
             <p className="text-editorial text-signal-teal text-base mb-3">
@@ -26,16 +26,16 @@ export function Testimonials() {
       {/* Marquee */}
       <div className="relative">
         {/* Gradient masks */}
-        <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-paper to-transparent z-10" />
-        <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-paper to-transparent z-10" />
+        <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-32 bg-gradient-to-r from-paper to-transparent z-10" />
+        <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-32 bg-gradient-to-l from-paper to-transparent z-10" />
 
         <div className="flex animate-marquee">
           {doubled.map((testimonial, i) => (
             <div
               key={`${testimonial.author}-${i}`}
-              className="flex-shrink-0 w-[400px] mx-4"
+              className="flex-shrink-0 w-[280px] sm:w-[340px] md:w-[400px] mx-3 sm:mx-4"
             >
-              <div className="glass-card p-8 h-full">
+              <div className="glass-card p-5 sm:p-8 h-full">
                 <Quote
                   size={20}
                   className="text-signal-teal/40 mb-4"

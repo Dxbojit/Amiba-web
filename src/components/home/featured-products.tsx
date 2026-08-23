@@ -9,10 +9,10 @@ import {
 
 export function FeaturedProducts() {
   return (
-    <section className="py-24 bg-paper">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section className="py-16 sm:py-24 bg-paper">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionReveal>
-          <div className="text-center mb-16">
+          <div className="text-center mb-10 sm:mb-16">
             <p className="text-editorial text-signal-teal text-base mb-3">
               Our catalog
             </p>

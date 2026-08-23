@@ -13,8 +13,8 @@ export default function ProductsPage() {
   return (
     <>
       {/* Header */}
-      <section className="pt-32 pb-12 bg-paper">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <section className="pt-24 sm:pt-32 pb-8 sm:pb-12 bg-paper">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionReveal>
             <div className="text-center">
               <p className="text-editorial text-signal-teal text-base mb-3">
@@ -32,8 +32,8 @@ export default function ProductsPage() {
       </section>
 
       {/* Products Grid */}
-      <section className="pb-24 bg-paper">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <section className="pb-16 sm:pb-24 bg-paper">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ProductGrid />
         </div>
       </section>

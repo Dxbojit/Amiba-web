@@ -40,10 +40,10 @@ const valueProps = [
 
 export function WhyAmiba() {
   return (
-    <section className="py-24 bg-mist/30">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section className="py-16 sm:py-24 bg-mist/30">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionReveal>
-          <div className="text-center mb-16">
+          <div className="text-center mb-10 sm:mb-16">
             <p className="text-editorial text-signal-teal text-base mb-3">
               Why choose us
             </p>
@@ -54,10 +54,10 @@ export function WhyAmiba() {
         </SectionReveal>
 
         <SectionReveal stagger>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {valueProps.map((prop) => (
               <SectionRevealChild key={prop.title}>
-                <div className="glass-card p-8 h-full text-center group hover:shadow-lg transition-shadow">
+                <div className="glass-card p-6 sm:p-8 h-full text-center group hover:shadow-lg transition-shadow">
                   <div className="w-14 h-14 rounded-2xl bg-signal-teal/10 flex items-center justify-center mx-auto mb-5 group-hover:bg-signal-teal/20 transition-colors">
                     <prop.icon
                       size={28}

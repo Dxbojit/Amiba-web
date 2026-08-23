@@ -52,8 +52,8 @@ export default function ContactPage() {
 
   if (submitted) {
     return (
-      <section className="pt-32 pb-24 bg-paper">
-        <div className="max-w-2xl mx-auto px-6 lg:px-8 text-center">
+      <section className="pt-24 sm:pt-32 pb-16 sm:pb-24 bg-paper">
+        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="w-20 h-20 rounded-full bg-signal-teal/10 flex items-center justify-center mx-auto mb-6">
             <CheckCircle2 size={40} className="text-signal-teal" />
           </div>
@@ -72,8 +72,8 @@ export default function ContactPage() {
 
   return (
     <>
-      <section className="pt-32 pb-24 bg-paper">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <section className="pt-24 sm:pt-32 pb-16 sm:pb-24 bg-paper">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionReveal>
             <div className="text-center mb-16">
               <p className="text-editorial text-signal-teal text-base mb-3">
@@ -89,7 +89,7 @@ export default function ContactPage() {
             </div>
           </SectionReveal>
 
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 sm:gap-12">
             {/* Form */}
             <div className="lg:col-span-3">
               <SectionReveal>
@@ -268,9 +268,9 @@ export default function ContactPage() {
             </div>
 
             {/* Contact Info Sidebar */}
-            <div className="lg:col-span-2">
+            <div className="lg:col-span-2 order-first lg:order-last">
               <SectionReveal>
-                <div className="glass-card p-8 mb-8">
+                <div className="glass-card p-6 sm:p-8 mb-6 sm:mb-8">
                   <h3 className="text-display-md !text-lg text-ink mb-6">
                     Contact Information
                   </h3>

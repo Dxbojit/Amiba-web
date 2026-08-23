@@ -24,8 +24,8 @@ export default function FAQPage() {
 
   return (
     <>
-      <section className="pt-32 pb-24 bg-paper">
-        <div className="max-w-3xl mx-auto px-6 lg:px-8">
+      <section className="pt-24 sm:pt-32 pb-16 sm:pb-24 bg-paper">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionReveal>
             <div className="text-center mb-16">
               <p className="text-editorial text-signal-teal text-base mb-3">

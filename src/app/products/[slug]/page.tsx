@@ -102,8 +102,8 @@ export default async function ProductDetailPage({
       />
 
       {/* Breadcrumb */}
-      <section className="pt-28 pb-4 bg-paper">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <section className="pt-20 sm:pt-28 pb-4 bg-paper">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link
             href="/products"
             className="inline-flex items-center gap-2 text-sm text-slate hover:text-signal-teal transition-colors"
@@ -115,9 +115,9 @@ export default async function ProductDetailPage({
       </section>
 
       {/* Product Detail */}
-      <section className="pb-24 bg-paper">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+      <section className="pb-16 sm:pb-24 bg-paper">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-12">
             {/* Left: Product Info */}
             <div className="lg:col-span-2">
               <SectionReveal>
@@ -202,9 +202,9 @@ export default async function ProductDetailPage({
             </div>
 
             {/* Right: Sticky Sidebar CTA */}
-            <div className="lg:col-span-1">
-              <div className="lg:sticky lg:top-28">
-                <div className="glass-card p-8">
+            <div className="lg:col-span-1 order-first lg:order-last">
+              <div className="lg:sticky lg:top-24">
+                <div className="glass-card p-6 sm:p-8">
                   <h3 className="text-display-md !text-lg text-ink mb-3">
                     Request a Quote
                   </h3>

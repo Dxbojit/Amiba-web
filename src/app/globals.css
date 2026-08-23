@@ -91,11 +91,11 @@
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 0.75rem 2rem;
+  padding: 0.625rem 1.5rem;
   border-radius: 9999px;
   font-family: var(--font-sans);
   font-weight: 600;
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
   letter-spacing: 0.01em;
   transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
   cursor: pointer;
@@ -103,6 +103,14 @@
   outline: none;
   position: relative;
   overflow: hidden;
+  min-height: 44px; /* Touch-friendly tap target */
+}
+
+@media (min-width: 640px) {
+  .btn-capsule {
+    padding: 0.75rem 2rem;
+    font-size: 0.9375rem;
+  }
 }
 
 .btn-capsule:focus-visible {
@@ -187,21 +195,23 @@
 
 /* ─── Scrollbar Styling ─── */
 
-::-webkit-scrollbar {
-  width: 8px;
-}
+@media (min-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
 
-::-webkit-scrollbar-track {
-  background: var(--paper);
-}
+  ::-webkit-scrollbar-track {
+    background: var(--paper);
+  }
 
-::-webkit-scrollbar-thumb {
-  background: var(--mist);
-  border-radius: 9999px;
-}
+  ::-webkit-scrollbar-thumb {
+    background: var(--mist);
+    border-radius: 9999px;
+  }
 
-::-webkit-scrollbar-thumb:hover {
-  background: var(--slate);
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--slate);
+  }
 }
 
 /* ─── Selection ─── */
@@ -269,7 +279,13 @@ body {
 }
 
 .animate-marquee {
-  animation: marquee 40s linear infinite;
+  animation: marquee 25s linear infinite;
+}
+
+@media (min-width: 768px) {
+  .animate-marquee {
+    animation: marquee 40s linear infinite;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -282,4 +298,13 @@ body {
 
 .stat-glow {
   text-shadow: 0 0 40px rgba(0, 178, 160, 0.3);
+}
+
+/* ─── Mobile Utility Classes ─── */
+
+@media (max-width: 639px) {
+  /* Prevent horizontal overflow from absolutely positioned elements */
+  .overflow-x-safe {
+    overflow-x: clip;
+  }
 }

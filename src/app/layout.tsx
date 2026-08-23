@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Space_Grotesk, Inter, Fraunces } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/nav/navbar";
@@ -22,6 +22,12 @@ const fraunces = Fraunces({
   subsets: ["latin"],
   display: "swap",
 });
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+};
 
 export const metadata: Metadata = {
   title: {

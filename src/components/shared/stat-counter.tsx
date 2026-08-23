@@ -61,7 +61,7 @@ export function StatCounter({
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
     >
-      <div className="text-5xl md:text-6xl font-bold font-[var(--font-display)] text-signal-teal stat-glow mb-2">
+      <div className="text-3xl sm:text-5xl md:text-6xl font-bold font-[var(--font-display)] text-signal-teal stat-glow mb-2">
         {prefix}
         {displayValue.toLocaleString()}
         {suffix}

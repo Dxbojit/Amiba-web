@@ -33,8 +33,8 @@ export default function QualityPage() {
   return (
     <>
       {/* Hero */}
-      <section className="pt-32 pb-16 bg-paper">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <section className="pt-24 sm:pt-32 pb-12 sm:pb-16 bg-paper">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionReveal>
             <div className="max-w-3xl">
               <p className="text-editorial text-signal-teal text-base mb-3">
@@ -56,8 +56,8 @@ export default function QualityPage() {
       </section>
 
       {/* Certifications Grid */}
-      <section className="pb-24 bg-paper">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <section className="pb-16 sm:pb-24 bg-paper">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionReveal stagger>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {certifications.map((cert) => {
@@ -66,7 +66,7 @@ export default function QualityPage() {
                   <SectionRevealChild key={cert.abbreviation}>
                     <button
                       onClick={() => setSelectedCert(cert.abbreviation)}
-                      className="glass-card p-8 w-full text-left group hover:shadow-lg transition-all cursor-pointer"
+                      className="glass-card p-6 sm:p-8 w-full text-left group hover:shadow-lg transition-all cursor-pointer"
                     >
                       <div className="w-14 h-14 rounded-2xl bg-signal-teal/10 flex items-center justify-center mb-5 group-hover:bg-signal-teal/20 transition-colors">
                         <Icon size={28} className="text-signal-teal" strokeWidth={1.5} />
@@ -93,10 +93,10 @@ export default function QualityPage() {
       </section>
 
       {/* Compliance Statement */}
-      <section className="py-20 bg-clinical-navy relative overflow-hidden">
+      <section className="py-14 sm:py-20 bg-clinical-navy relative overflow-hidden">
         <div className="absolute inset-0 bg-molecular opacity-15" />
         <div className="grain-overlay absolute inset-0 pointer-events-none" />
-        <div className="relative z-10 max-w-4xl mx-auto px-6 lg:px-8 text-center">
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <SectionReveal>
             <h2 className="text-display-lg text-white mb-6">
               Our compliance commitment
@@ -120,8 +120,8 @@ export default function QualityPage() {
       </section>
 
       {/* Cold Chain Section */}
-      <section className="py-20 bg-paper">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <section className="py-14 sm:py-20 bg-paper">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionReveal>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <div>
@@ -170,14 +170,14 @@ export default function QualityPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-6 bg-ink/60 backdrop-blur-sm"
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-ink/60 backdrop-blur-sm"
             onClick={() => setSelectedCert(null)}
           >
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="glass-card max-w-lg w-full p-8 relative"
+              className="glass-card max-w-lg w-full p-6 sm:p-8 relative"
               onClick={(e) => e.stopPropagation()}
             >
               <button
