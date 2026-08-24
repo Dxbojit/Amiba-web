@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import { products, categories, getProductsByCategory } from "@/data/products";
 import { ProductCard } from "@/components/products/product-card";
 import {
@@ -10,7 +11,34 @@ import {
 import { motion } from "framer-motion";
 
 export function ProductGrid() {
-  const [activeCategory, setActiveCategory] = useState("All");
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const urlCategory = searchParams.get("category");
+  const [activeCategory, setActiveCategory] = useState(
+    urlCategory && categories.includes(urlCategory as any) ? urlCategory : "All"
+  );
+
+  useEffect(() => {
+    if (urlCategory && categories.includes(urlCategory as any)) {
+      setActiveCategory(urlCategory);
+    } else if (!urlCategory) {
+      setActiveCategory("All");
+    }
+  }, [urlCategory]);
+
+  const handleCategoryChange = (cat: string) => {
+    setActiveCategory(cat);
+    const params = new URLSearchParams(searchParams.toString());
+    if (cat === "All") {
+      params.delete("category");
+    } else {
+      params.set("category", cat);
+    }
+    router.replace(`${pathname}?${params.toString()}`, { scroll: false });
+  };
+
   const filtered = getProductsByCategory(activeCategory);
 
   return (
@@ -20,7 +48,7 @@ export function ProductGrid() {
         {categories.map((cat) => (
           <button
             key={cat}
-            onClick={() => setActiveCategory(cat)}
+            onClick={() => handleCategoryChange(cat)}
             className={`px-4 py-2 rounded-full text-sm font-medium transition-all flex-shrink-0 whitespace-nowrap ${
               activeCategory === cat
                 ? "bg-signal-teal text-white shadow-md"

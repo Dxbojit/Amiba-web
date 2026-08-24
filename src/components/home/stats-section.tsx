@@ -5,10 +5,10 @@ import { StatCounter } from "@/components/shared/stat-counter";
 export function StatsSection() {
   /* TODO: REPLACE — Use real numbers when available */
   const stats = [
-    { value: 500, suffix: "+", label: "Partner Institutions" },
+    { value: 100, suffix: "+", label: "Partner Institutions" },
     { value: 8, suffix: "", label: "Product Categories" },
     { value: 99, suffix: "%", label: "Order Fulfillment Rate" },
-    { value: 28, suffix: "", label: "States Covered" },
+    { value: 10, suffix: "+", label: "States Covered" },
   ];
 
   return (

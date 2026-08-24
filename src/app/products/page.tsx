@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import type { Metadata } from "next";
 import { ProductGrid } from "@/components/products/product-grid";
 import { SectionReveal } from "@/components/shared/section-reveal";
@@ -34,7 +35,9 @@ export default function ProductsPage() {
       {/* Products Grid */}
       <section className="pb-16 sm:pb-24 bg-paper">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ProductGrid />
+          <Suspense fallback={<div className="min-h-[400px]" />}>
+            <ProductGrid />
+          </Suspense>
         </div>
       </section>
 

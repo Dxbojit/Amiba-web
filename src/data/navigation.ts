@@ -15,11 +15,11 @@ export const mainNav: NavLink[] = [
 export const footerNav = {
   products: [
     { label: "All Products", href: "/products" },
-    { label: "Analgesics", href: "/products?category=Analgesics" },
-    { label: "Antibiotics", href: "/products?category=Antibiotics" },
-    { label: "Chronic Care", href: "/products?category=Chronic+Care" },
-    { label: "PPE & Devices", href: "/products?category=PPE" },
-    { label: "Surgical Consumables", href: "/products?category=Surgical+Consumables" },
+    { label: "Gastrointestinal", href: "/products?category=Gastrointestinal" },
+    { label: "Cardiovascular", href: "/products?category=Cardiovascular" },
+    { label: "Vitamins & Supplements", href: "/products?category=Vitamins+%26+Supplements" },
+    { label: "Respiratory & Allergy", href: "/products?category=Respiratory+%26+Allergy" },
+    { label: "Gout & Hyperuricemia", href: "/products?category=Gout+%26+Hyperuricemia" },
   ],
   company: [
     { label: "About AMIBA", href: "/about" },
