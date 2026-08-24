@@ -5,6 +5,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { AnnouncementBar } from "@/components/shared/announcement-bar";
 import { Menu, X } from "lucide-react";
 import { mainNav } from "@/data/navigation";
 
@@ -69,13 +71,14 @@ export function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-200 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-200 flex flex-col ${
           showBackground
             ? "bg-paper/90 backdrop-blur-md border-b border-mist/80 shadow-xs"
             : "bg-transparent"
         }`}
       >
-        <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
+        <AnnouncementBar />
+        <nav className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center group">
             <div className="relative w-28 sm:w-36 h-10 sm:h-12 flex items-center">
@@ -89,7 +92,10 @@ export function Navbar() {
                 loading="eager"
               />
               {/* Text logo for light scrolled navbar */}
-              <div className={`absolute inset-0 flex items-center transition-opacity duration-300 ${showBackground ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+              <div className={`absolute inset-0 flex items-center gap-2 transition-opacity duration-300 ${showBackground ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+                <div className="relative w-8 h-8 rounded-md overflow-hidden shrink-0 shadow-sm border border-slate/10">
+                  <Image src="/images/leaf_icon.png" alt="" fill className="object-cover" />
+                </div>
                 <span className="text-xl sm:text-2xl font-bold tracking-tight font-[var(--font-display)]">
                   <span className="text-signal-teal">A</span><span className="text-ink">MIBA</span>
                 </span>
