@@ -119,44 +119,6 @@ export default function QualityPage() {
         </div>
       </section>
 
-      {/* Cold Chain Section */}
-      <section className="py-14 sm:py-20 bg-paper">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionReveal>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-              <div>
-                <p className="text-editorial text-signal-teal text-base mb-3">
-                  Temperature integrity
-                </p>
-                <h2 className="text-display-lg text-ink mb-6">
-                  Cold-chain you can verify
-                </h2>
-                <p className="text-body text-slate mb-6">
-                  For temperature-sensitive products like biologics and certain
-                  diagnostics, AMIBA maintains a validated cold-chain infrastructure
-                  from warehouse to delivery point.
-                </p>
-                <ul className="space-y-4">
-                  {[
-                    "Temperature-monitored warehousing (2°C–8°C and 15°C–25°C zones)",
-                    "Calibrated insulated transport containers",
-                    "Real-time temperature data logging during transit",
-                    "Temperature exposure reports included with every delivery",
-                  ].map((item) => (
-                    <li key={item} className="flex items-start gap-3">
-                      <Snowflake size={18} className="text-signal-teal mt-0.5 flex-shrink-0" />
-                      <span className="text-body-sm text-slate">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="aspect-square rounded-2xl bg-gradient-to-br from-signal-teal/10 to-mist flex items-center justify-center border border-mist">
-                <Snowflake size={80} className="text-signal-teal/30" />
-              </div>
-            </div>
-          </SectionReveal>
-        </div>
-      </section>
 
       <CTABanner
         heading="Questions about our quality standards?"
