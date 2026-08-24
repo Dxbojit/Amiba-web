@@ -78,20 +78,18 @@ export function Navbar() {
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center group">
-            <div className="relative w-28 sm:w-36 h-10 sm:h-12">
+            <div className="relative w-28 sm:w-36 h-10 sm:h-12 flex items-center">
               {/* Image logo for dark hero */}
-              <div className={`absolute inset-0 transition-opacity duration-300 ${showBackground ? 'opacity-0' : 'opacity-100'}`}>
-                <Image
-                  src="/images/logo_transparent.png"
-                  alt="AMIBA"
-                  fill
-                  className="object-contain object-left"
-                  priority
-                  loading="eager"
-                />
-              </div>
+              <Image
+                src="/images/logo_transparent.png"
+                alt="AMIBA"
+                fill
+                className={`object-contain object-left transition-opacity duration-300 ${showBackground ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
+                priority
+                loading="eager"
+              />
               {/* Text logo for light scrolled navbar */}
-              <div className={`absolute inset-0 flex items-center transition-opacity duration-300 ${showBackground ? 'opacity-100' : 'opacity-0'}`}>
+              <div className={`absolute inset-0 flex items-center transition-opacity duration-300 ${showBackground ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
                 <span className="text-xl sm:text-2xl font-bold tracking-tight font-[var(--font-display)]">
                   <span className="text-signal-teal">A</span><span className="text-ink">MIBA</span>
                 </span>
