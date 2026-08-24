@@ -81,25 +81,24 @@ export function Navbar() {
         <nav className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center group">
-            <div className="relative w-28 sm:w-36 h-10 sm:h-12 flex items-center">
+            <div className="relative w-40 sm:w-56 h-10 sm:h-12 flex items-center">
               {/* Image logo for dark hero */}
               <Image
-                src="/images/logo_transparent.png"
+                src="/images/logo_light.png"
                 alt="AMIBA"
                 fill
                 className={`object-contain object-left transition-opacity duration-300 ${showBackground ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
                 priority
                 loading="eager"
               />
-              {/* Text logo for light scrolled navbar */}
-              <div className={`absolute inset-0 flex items-center gap-2 transition-opacity duration-300 ${showBackground ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
-                <div className="relative w-8 h-8 rounded-md overflow-hidden shrink-0 shadow-sm border border-slate/10">
-                  <Image src="/images/leaf_icon.png" alt="" fill className="object-cover" />
-                </div>
-                <span className="text-xl sm:text-2xl font-bold tracking-tight font-[var(--font-display)]">
-                  <span className="text-signal-teal">A</span><span className="text-ink">MIBA</span>
-                </span>
-              </div>
+              {/* Image logo for light scrolled navbar */}
+              <Image
+                src="/images/logo_light.png"
+                alt="AMIBA Pharmaceuticals"
+                fill
+                className={`object-contain object-left transition-opacity duration-300 ${showBackground ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
+                priority
+              />
             </div>
           </Link>
 

@@ -22,12 +22,12 @@ export function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-2 mb-4">
-              <div className="relative w-32 sm:w-40 h-12 sm:h-16">
+              <div className="relative w-48 sm:w-56 h-12 sm:h-16">
                 <Image
-                  src="/images/logo_transparent.png"
+                  src="/images/logo_light.png"
                   alt="AMIBA Pharmaceuticals"
                   fill
-                  className="object-contain object-left mix-blend-lighten"
+                  className="object-contain object-left"
                 />
               </div>
             </div>
