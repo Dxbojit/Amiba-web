@@ -173,7 +173,7 @@ export default function AboutPage() {
                 <div className="text-center">
                   <div className="relative w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden border-4 border-white shadow-md mx-auto mb-4 bg-mist flex items-center justify-center">
                     <Image
-                      src="/images/founders/manash-kr-mandal.jpg"
+                      src="/images/founders/tapash-mandal.jpg"
                       alt="Tapash Kr Mandal"
                       fill
                       className="object-cover"
@@ -186,7 +186,7 @@ export default function AboutPage() {
                 <div className="text-center">
                   <div className="relative w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden border-4 border-white shadow-md mx-auto mb-4 bg-mist flex items-center justify-center">
                     <Image
-                      src="/images/founders/manash-mandal.png"
+                      src="/images/founders/manash-mandal.jpg"
                       alt="Manash Kr Mandal"
                       fill
                       className="object-cover"
