@@ -11,14 +11,14 @@ export default function TermsPage() {
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 className="text-display-lg text-ink mb-4">Terms of Use</h1>
         <p className="text-body-sm text-slate mb-12">
-          Last updated: January 2024 {/* TODO: REPLACE */}
+          Last updated: August 2026
         </p>
 
         <div className="space-y-8">
           <div>
             <h2 className="text-display-md !text-xl text-ink mb-3">1. Acceptance of Terms</h2>
             <p className="text-body text-slate leading-relaxed">
-              By accessing and using the AMIBA Healthcare website (&ldquo;the Site&rdquo;), you agree to be bound by these Terms of Use. If you do not agree to these terms, please do not use the Site. AMIBA Healthcare Pvt. Ltd. reserves the right to modify these terms at any time without prior notice.
+              By accessing and using the AMIBA Healthcare website (&ldquo;the Site&rdquo;), you agree to be bound by these Terms of Use. If you do not agree to these terms, please do not use the Site. AMIBA PHARMACEUTICALS reserves the right to modify these terms at any time without prior notice.
             </p>
           </div>
 
@@ -46,14 +46,14 @@ export default function TermsPage() {
           <div>
             <h2 className="text-display-md !text-xl text-ink mb-3">5. Intellectual Property</h2>
             <p className="text-body text-slate leading-relaxed">
-              All content on this website, including but not limited to text, graphics, logos, images, and software, is the property of AMIBA Healthcare Pvt. Ltd. and is protected by applicable intellectual property laws. You may not reproduce, distribute, or create derivative works from any content on this website without our prior written consent.
+              All content on this website, including but not limited to text, graphics, logos, images, and software, is the property of AMIBA PHARMACEUTICALS and is protected by applicable intellectual property laws. You may not reproduce, distribute, or create derivative works from any content on this website without our prior written consent.
             </p>
           </div>
 
           <div>
             <h2 className="text-display-md !text-xl text-ink mb-3">6. Limitation of Liability</h2>
             <p className="text-body text-slate leading-relaxed">
-              AMIBA Healthcare Pvt. Ltd. provides this website on an &ldquo;as is&rdquo; basis. We make no warranties, express or implied, regarding the accuracy, completeness, or reliability of the information on this website. In no event shall AMIBA be liable for any indirect, incidental, or consequential damages arising from your use of this website.
+              AMIBA PHARMACEUTICALS provides this website on an &ldquo;as is&rdquo; basis. We make no warranties, express or implied, regarding the accuracy, completeness, or reliability of the information on this website. In no event shall AMIBA be liable for any indirect, incidental, or consequential damages arising from your use of this website.
             </p>
           </div>
 
@@ -67,10 +67,9 @@ export default function TermsPage() {
           <div>
             <h2 className="text-display-md !text-xl text-ink mb-3">8. Contact</h2>
             <p className="text-body text-slate leading-relaxed">
-              {/* TODO: REPLACE with real contact */}
               For any questions regarding these terms, please contact us at:{" "}
-              <a href="mailto:legal@amiba.in" className="text-signal-teal hover:underline">
-                legal@amiba.in
+              <a href="mailto:mrigankamandalamiba@gmail.com" className="text-signal-teal hover:underline">
+                mrigankamandalamiba@gmail.com
               </a>
             </p>
           </div>

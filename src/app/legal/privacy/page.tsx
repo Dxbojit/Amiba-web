@@ -11,14 +11,14 @@ export default function PrivacyPage() {
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 className="text-display-lg text-ink mb-4">Privacy Policy</h1>
         <p className="text-body-sm text-slate mb-12">
-          Last updated: January 2024 {/* TODO: REPLACE */}
+          Last updated: August 2026
         </p>
 
         <div className="prose-amiba space-y-8">
           <div>
             <h2 className="text-display-md !text-xl text-ink mb-3">1. Introduction</h2>
             <p className="text-body text-slate leading-relaxed">
-              AMIBA Healthcare Pvt. Ltd. (&ldquo;AMIBA,&rdquo; &ldquo;we,&rdquo; &ldquo;our,&rdquo; or &ldquo;us&rdquo;) is committed to protecting the privacy and security of the personal information of our business partners, website visitors, and other stakeholders. This Privacy Policy explains how we collect, use, store, and protect your information when you interact with our website and services.
+              AMIBA PHARMACEUTICALS (&ldquo;AMIBA,&rdquo; &ldquo;we,&rdquo; &ldquo;our,&rdquo; or &ldquo;us&rdquo;) is committed to protecting the privacy and security of the personal information of our business partners, website visitors, and other stakeholders. This Privacy Policy explains how we collect, use, store, and protect your information when you interact with our website and services.
             </p>
           </div>
 
@@ -74,10 +74,9 @@ export default function PrivacyPage() {
           <div>
             <h2 className="text-display-md !text-xl text-ink mb-3">7. Contact Us</h2>
             <p className="text-body text-slate leading-relaxed">
-              {/* TODO: REPLACE with real contact */}
               For any privacy-related questions or requests, please contact us at:{" "}
-              <a href="mailto:privacy@amiba.in" className="text-signal-teal hover:underline">
-                privacy@amiba.in
+              <a href="mailto:mrigankamandalamiba@gmail.com" className="text-signal-teal hover:underline">
+                mrigankamandalamiba@gmail.com
               </a>
             </p>
           </div>
