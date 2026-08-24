@@ -80,7 +80,7 @@ export function Navbar() {
         <nav className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center group">
-            <div className="relative w-40 sm:w-56 h-10 sm:h-12 flex items-center">
+            <div className="relative w-48 sm:w-64 h-12 sm:h-14 flex items-center">
               {/* Image logo for dark hero */}
               <Image
                 src="/images/logo_light.png"

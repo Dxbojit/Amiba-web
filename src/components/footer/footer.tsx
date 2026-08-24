@@ -22,7 +22,7 @@ export function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-2 mb-4">
-              <div className="relative w-48 sm:w-56 h-12 sm:h-16">
+              <div className="relative w-56 sm:w-72 h-14 sm:h-18">
                 <Image
                   src="/images/logo_light.png"
                   alt="AMIBA Pharmaceuticals"
