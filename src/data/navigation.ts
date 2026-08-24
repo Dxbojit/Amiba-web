@@ -1,11 +1,20 @@
 export interface NavLink {
   label: string;
   href: string;
+  subItems?: NavLink[];
 }
 
 export const mainNav: NavLink[] = [
   { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
+  {
+    label: "About",
+    href: "/about/our-journey",
+    subItems: [
+      { label: "Our Journey", href: "/about/our-journey" },
+      { label: "Founders Note", href: "/about/founders-note" },
+      { label: "Board of Directors", href: "/about/board-of-directors" },
+    ],
+  },
   { label: "Products", href: "/products" },
   { label: "Quality", href: "/quality" },
   { label: "For Partners", href: "/for-partners" },
@@ -22,7 +31,7 @@ export const footerNav = {
     { label: "Gout & Hyperuricemia", href: "/products?category=Gout+%26+Hyperuricemia" },
   ],
   company: [
-    { label: "About AMIBA", href: "/about" },
+    { label: "About AMIBA", href: "/about/our-journey" },
     { label: "Quality & Certifications", href: "/quality" },
     { label: "For Partners", href: "/for-partners" },
     { label: "FAQs", href: "/faq" },

@@ -6,7 +6,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { AnnouncementBar } from "@/components/shared/announcement-bar";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { mainNav } from "@/data/navigation";
 
 export function Navbar() {
@@ -107,6 +107,46 @@ export function Navbar() {
               const isActive =
                 pathname === link.href ||
                 (link.href !== "/" && pathname.startsWith(link.href));
+              
+              if (link.subItems) {
+                return (
+                  <div key={link.href} className="relative group">
+                    <button
+                      className={`px-4 py-2 rounded-full text-sm font-medium transition-colors flex items-center gap-1 ${
+                        isActive
+                          ? "text-signal-teal bg-signal-teal/10"
+                          : isHome && !isScrolled
+                          ? "text-white/80 hover:text-white hover:bg-white/10"
+                          : "text-slate hover:text-ink hover:bg-mist/50"
+                      }`}
+                    >
+                      {link.label}
+                      <ChevronDown size={14} className="opacity-70 group-hover:rotate-180 transition-transform duration-200" />
+                    </button>
+                    <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 min-w-[200px]">
+                      <div className="bg-white rounded-xl shadow-lg border border-slate/10 p-2 flex flex-col gap-1">
+                        {link.subItems.map((subItem) => {
+                          const isSubActive = pathname === subItem.href;
+                          return (
+                            <Link
+                              key={subItem.href}
+                              href={subItem.href}
+                              className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
+                                isSubActive
+                                  ? "text-signal-teal bg-signal-teal/5"
+                                  : "text-slate hover:text-ink hover:bg-mist/50"
+                              }`}
+                            >
+                              {subItem.label}
+                            </Link>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  </div>
+                );
+              }
+
               return (
                 <Link
                   key={link.href}
@@ -176,6 +216,36 @@ export function Navbar() {
                 const isActive =
                   pathname === link.href ||
                   (link.href !== "/" && pathname.startsWith(link.href));
+                if (link.subItems) {
+                  return (
+                    <motion.div
+                      key={link.href}
+                      initial={{ opacity: 0, y: 15 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: i * 0.04 }}
+                      className="flex flex-col items-center gap-4 w-full"
+                    >
+                      <span className={`text-2xl font-semibold font-[var(--font-display)] ${isActive ? "text-signal-teal" : "text-ink"}`}>
+                        {link.label}
+                      </span>
+                      <div className="flex flex-col items-center gap-3 w-full bg-mist/30 py-4 rounded-2xl">
+                        {link.subItems.map((sub) => (
+                          <Link
+                            key={sub.href}
+                            href={sub.href}
+                            onClick={() => setIsMobileOpen(false)}
+                            className={`text-lg font-medium ${
+                              pathname === sub.href ? "text-signal-teal" : "text-slate hover:text-ink"
+                            }`}
+                          >
+                            {sub.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </motion.div>
+                  );
+                }
+
                 return (
                   <motion.div
                     key={link.href}
