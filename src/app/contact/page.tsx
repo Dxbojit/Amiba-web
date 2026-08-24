@@ -255,12 +255,11 @@ export default function ContactPage() {
                   {/* Mailto fallback */}
                   <p className="text-xs text-slate mt-4">
                     Form not working?{" "}
-                    {/* TODO: REPLACE with real email */}
                     <a
-                      href="mailto:enquiry@amiba.in?subject=Quote%20Request"
+                      href="mailto:mrigankamandalamiba@gmail.com?subject=Quote%20Request"
                       className="text-signal-teal hover:underline"
                     >
-                      Email us directly at enquiry@amiba.in
+                      Email us directly at mrigankamandalamiba@gmail.com
                     </a>
                   </p>
                 </form>
@@ -281,13 +280,12 @@ export default function ContactPage() {
                       </div>
                       <div>
                         <p className="text-sm font-medium text-ink">Office</p>
-                        {/* TODO: REPLACE with real address */}
                         <p className="text-sm text-slate mt-1">
-                          AMIBA Healthcare Pvt. Ltd.
+                          AMIBA PHARMACEUTICALS
                           <br />
-                          Business District, Mumbai
+                          H.O. : 202/204 Lalji Donger Shee Building, 3rd Floor Room No. 28,
                           <br />
-                          Maharashtra 400001, India
+                          Norsinatha Street, Bath Bazar, Mumbai-400009
                         </p>
                       </div>
                     </li>
@@ -297,12 +295,11 @@ export default function ContactPage() {
                       </div>
                       <div>
                         <p className="text-sm font-medium text-ink">Phone</p>
-                        {/* TODO: REPLACE */}
                         <a
-                          href="tel:+911234567890"
+                          href="tel:+917407685123"
                           className="text-sm text-slate hover:text-signal-teal transition-colors"
                         >
-                          +91 12345 67890
+                          7407685123 / 8617396557 / 813107158
                         </a>
                       </div>
                     </li>
@@ -312,12 +309,11 @@ export default function ContactPage() {
                       </div>
                       <div>
                         <p className="text-sm font-medium text-ink">Email</p>
-                        {/* TODO: REPLACE */}
                         <a
-                          href="mailto:enquiry@amiba.in"
+                          href="mailto:mrigankamandalamiba@gmail.com"
                           className="text-sm text-slate hover:text-signal-teal transition-colors"
                         >
-                          enquiry@amiba.in
+                          mrigankamandalamiba@gmail.com
                         </a>
                       </div>
                     </li>

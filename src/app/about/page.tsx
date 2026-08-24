@@ -9,13 +9,7 @@ export const metadata: Metadata = {
     "Learn about AMIBA's mission to transform B2B pharmaceutical supply in India — our story, values, and commitment to quality healthcare access.",
 };
 
-const milestones = [
-  { year: "2020", title: "Founded", description: "AMIBA Healthcare established with a mission to bring transparency and reliability to B2B pharmaceutical supply." },
-  { year: "2021", title: "First 100 Partners", description: "Onboarded our hundredth institutional partner — hospitals, pharmacy chains, and clinics across Maharashtra." },
-  { year: "2022", title: "Cold Chain Launch", description: "Launched validated cold-chain logistics for biologics and temperature-sensitive products." },
-  { year: "2023", title: "Pan-India Coverage", description: "Expanded delivery network to cover 28 states and 8 union territories with dedicated regional logistics hubs." },
-  { year: "2024", title: "500+ Partners", description: "Surpassed 500 active institutional partners with a 99% order fulfillment rate." },
-];
+
 
 const values = [
   { icon: Target, title: "Precision", description: "Every product batch-tested. Every shipment documented. Every claim verifiable." },
@@ -121,41 +115,48 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Timeline */}
+      {/* Our Journey Narrative */}
       <section className="py-14 sm:py-20 bg-clinical-navy relative overflow-hidden">
         <div className="absolute inset-0 bg-molecular opacity-15" />
         <div className="grain-overlay absolute inset-0 pointer-events-none" />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionReveal>
-            <div className="text-center mb-16">
+            <div className="text-center mb-12">
               <p className="text-editorial text-signal-teal text-base mb-3">Our journey</p>
-              <h2 className="text-display-lg text-white">Milestones</h2>
+              <h2 className="text-display-lg text-white">A Legacy of Trust</h2>
+            </div>
+            
+            <div className="space-y-6 text-white/80 text-lg leading-relaxed text-center sm:text-left">
+              <p>
+                Every meaningful journey begins with a dream—and for us, that dream has been built over decades of dedication, trust, and service.
+              </p>
+              <p>
+                For the past 38 years, our family has been privileged to serve the community through a renowned pharmaceutical retail store and a trusted diagnostic centre. What began as a humble endeavour gradually grew through the unwavering commitment of our family, the faith of our customers, and the relationships we built along the way.
+              </p>
+              <p>
+                These years have taught us that healthcare is not simply a business. It is a responsibility—one that demands integrity, compassion, quality, and a commitment to putting people first.
+              </p>
+              <p>
+                Today, Amiba Pharmaceuticals represents the next chapter of that journey. It is one of our family's biggest dreams—a dream shaped by 38 years of experience, hard work, and a deep understanding of the healthcare community we serve.
+              </p>
+              <p>
+                With Amiba, we aspire to take our family's legacy forward by contributing to the pharmaceutical industry with the same values that have guided us from the beginning: trust, quality, responsibility, and service.
+              </p>
+              <p>
+                We know that this is not the destination, but the beginning of a new journey. And as we move forward, we remain humble and grateful for everyone who has been a part of our story.
+              </p>
+              
+              <div className="pt-8 mt-8 border-t border-white/10 text-xl font-medium text-white text-center">
+                <p>38 years of experience.</p>
+                <p className="text-signal-teal my-2">One enduring commitment.</p>
+                <p>A new dream—Amiba Pharmaceuticals.</p>
+              </div>
+              
+              <p className="pt-6 text-signal-teal font-semibold text-2xl font-[var(--font-display)] text-center">
+                Our journey continues.
+              </p>
             </div>
           </SectionReveal>
-
-          {/* Timeline items */}
-          <div className="relative">
-            {/* Vertical line */}
-            <div className="absolute left-6 sm:left-8 md:left-1/2 top-0 bottom-0 w-px bg-white/10 transform md:-translate-x-px" />
-
-            <div className="space-y-12">
-              {milestones.map((m, i) => (
-                <SectionReveal key={m.year}>
-                  <div className={`relative flex items-start gap-8 ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
-                    {/* Dot */}
-                    <div className="absolute left-6 sm:left-8 md:left-1/2 w-4 h-4 rounded-full bg-signal-teal border-4 border-clinical-navy transform -translate-x-2 md:-translate-x-2 mt-1" />
-
-                    {/* Content */}
-                    <div className={`ml-14 sm:ml-20 md:ml-0 md:w-[calc(50%-2rem)] ${i % 2 === 0 ? 'md:pr-12 md:text-right' : 'md:pl-12'}`}>
-                      <span className="text-signal-teal font-bold text-lg font-[var(--font-display)]">{m.year}</span>
-                      <h3 className="text-white text-xl font-semibold mt-1 font-[var(--font-display)]">{m.title}</h3>
-                      <p className="text-white/60 text-sm mt-2">{m.description}</p>
-                    </div>
-                  </div>
-                </SectionReveal>
-              ))}
-            </div>
-          </div>
         </div>
       </section>
 

@@ -103,33 +103,30 @@ export function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <MapPin size={16} className="text-signal-teal mt-0.5 flex-shrink-0" />
-                {/* TODO: REPLACE — Use real registered address */}
                 <span className="text-sm text-white/60">
-                  AMIBA Healthcare Pvt. Ltd.
+                  AMIBA PHARMACEUTICALS
                   <br />
-                  Business District, Mumbai
+                  H.O. : 202/204 Lalji Donger Shee Building, 3rd Floor Room No. 28,
                   <br />
-                  Maharashtra 400001, India
+                  Norsinatha Street, Bath Bazar, Mumbai-400009
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone size={16} className="text-signal-teal flex-shrink-0" />
-                {/* TODO: REPLACE — Use real phone */}
                 <a
-                  href="tel:+911234567890"
+                  href="tel:+917407685123"
                   className="text-sm text-white/60 hover:text-signal-teal transition-colors"
                 >
-                  +91 12345 67890
+                  7407685123 / 8617396557 / 8131078158
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={16} className="text-signal-teal flex-shrink-0" />
-                {/* TODO: REPLACE — Use real email */}
                 <a
-                  href="mailto:enquiry@amiba.in"
+                  href="mailto:mrigankamandalamiba@gmail.com"
                   className="text-sm text-white/60 hover:text-signal-teal transition-colors"
                 >
-                  enquiry@amiba.in
+                  mrigankamandalamiba@gmail.com
                 </a>
               </li>
             </ul>
@@ -140,11 +137,11 @@ export function Footer() {
         <div className="border-t border-white/10 pt-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-xs text-white/40">
-              © {new Date().getFullYear()} AMIBA Healthcare Pvt. Ltd. All rights
+              © {new Date().getFullYear()} AMIBA PHARMACEUTICALS. All rights
               reserved. Licensed pharmaceutical wholesaler.
             </p>
             <p className="text-xs text-white/30">
-              Drug License No: {/* TODO: REPLACE */}XX-XXXXX | GST: {/* TODO: REPLACE */}XXXXXXXXXXXX
+              Drug License No: WB/JPG/BIO/NBO/W/788339
             </p>
           </div>
         </div>
