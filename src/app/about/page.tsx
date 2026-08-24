@@ -275,6 +275,48 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Next Generation Leadership */}
+      <section className="py-14 sm:py-20 bg-paper">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionReveal>
+            <div className="text-center mb-12">
+              <p className="text-editorial text-signal-teal text-base mb-3">Leadership</p>
+              <h2 className="text-display-lg text-ink">The Next Generation</h2>
+            </div>
+          </SectionReveal>
+          <SectionReveal stagger>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-12 sm:gap-24">
+              <SectionRevealChild>
+                <div className="text-center">
+                  <div className="relative w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden border-4 border-white shadow-md mx-auto mb-4 bg-mist flex items-center justify-center">
+                    <Image
+                      src="/images/founders/mriganka-mandal.jpg"
+                      alt="Mriganka Mandal"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <h3 className="font-semibold text-lg text-ink">Mriganka Mandal</h3>
+                  <p className="text-signal-teal text-sm font-medium">Director (B.D)</p>
+                </div>
+              </SectionRevealChild>
+              
+              <SectionRevealChild>
+                <div className="text-center">
+                  <div className="relative w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden border-4 border-white shadow-md mx-auto mb-4 bg-gradient-to-br from-signal-teal/20 to-mist flex items-center justify-center">
+                    <span className="text-4xl font-bold text-signal-teal font-[var(--font-display)]">
+                      MM
+                    </span>
+                  </div>
+                  <h3 className="font-semibold text-lg text-ink">Mrinmoy Mandal</h3>
+                  <p className="text-signal-teal text-sm font-medium">Director (B.O)</p>
+                </div>
+              </SectionRevealChild>
+            </div>
+          </SectionReveal>
+        </div>
+      </section>
+
       <CTABanner
         heading="Join the AMIBA partner network"
         subheading="Discover what reliable, transparent pharmaceutical supply looks like."
