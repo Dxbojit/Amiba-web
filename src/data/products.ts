@@ -1,3 +1,9 @@
+export interface ProductVariant {
+  name: string;
+  composition: string;
+  image: string;
+}
+
 export interface Product {
   slug: string;
   name: string;
@@ -11,6 +17,7 @@ export interface Product {
   shelfLife: string;
   certifications: string[];
   image: string;
+  variants?: ProductVariant[];
   relatedSlugs: string[];
 }
 
@@ -40,7 +47,7 @@ export const products: Product[] = [
     storageConditions: "Store below 25°C in a dry place, protected from direct sunlight",
     shelfLife: "24 months from date of manufacture",
     certifications: ["GMP", "WHO-GMP"],
-    image: "/images/products/ramiba-dsr.jpg",
+    image: "/images/products/Ramiba-DSR.png",
     relatedSlugs: ["prazmo-d"],
   },
   {
@@ -57,7 +64,7 @@ export const products: Product[] = [
     storageConditions: "Store in a cool and dry place, away from moisture",
     shelfLife: "24 months from date of manufacture",
     certifications: ["GMP", "WHO-GMP", "CDSCO Approved"],
-    image: "/images/products/prazmo-d.jpg",
+    image: "/images/products/Prazmo-D.png",
     relatedSlugs: ["ramiba-dsr"],
   },
   {
@@ -74,7 +81,7 @@ export const products: Product[] = [
     storageConditions: "Store below 25°C in a dry place, protected from light",
     shelfLife: "18 months from date of manufacture",
     certifications: ["GMP", "FSSAI Compliant"],
-    image: "/images/products/mb-gold.jpg",
+    image: "/images/products/MB-Gold.png",
     relatedSlugs: ["ami-folic"],
   },
   {
@@ -91,7 +98,24 @@ export const products: Product[] = [
     storageConditions: "Store below 30°C in a dry place, protected from light",
     shelfLife: "36 months from date of manufacture",
     certifications: ["GMP", "WHO-GMP", "CDSCO Approved"],
-    image: "/images/products/ibator.jpg",
+    image: "/images/products/ibator10.png",
+    variants: [
+      {
+        name: "Ibator 10",
+        composition: "Atorvastatin Tablets I.P. 10 mg",
+        image: "/images/products/ibator10.png",
+      },
+      {
+        name: "Ibator 20",
+        composition: "Atorvastatin Tablets I.P. 20 mg",
+        image: "/images/products/Ibator20.png",
+      },
+      {
+        name: "Ibator 40",
+        composition: "Atorvastatin Tablets I.P. 40 mg",
+        image: "/images/products/Ibator40.png",
+      },
+    ],
     relatedSlugs: [],
   },
   {
@@ -108,7 +132,7 @@ export const products: Product[] = [
     storageConditions: "Store below 25°C in a dry place, protected from moisture",
     shelfLife: "24 months from date of manufacture",
     certifications: ["GMP", "WHO-GMP"],
-    image: "/images/products/amitriba-lc.jpg",
+    image: "/images/products/Amitriba-lc.png",
     relatedSlugs: ["ambimont-m"],
   },
   {
@@ -125,7 +149,7 @@ export const products: Product[] = [
     storageConditions: "Store below 25°C in a dry place, protected from light",
     shelfLife: "18 months from date of manufacture",
     certifications: ["GMP"],
-    image: "/images/products/ami-folic.jpg",
+    image: "/images/products/Amifolic.png",
     relatedSlugs: ["mb-gold"],
   },
   {
@@ -142,7 +166,7 @@ export const products: Product[] = [
     storageConditions: "Store below 30°C in a dry place, protected from moisture",
     shelfLife: "24 months from date of manufacture",
     certifications: ["GMP", "WHO-GMP", "CDSCO Approved"],
-    image: "/images/products/ambimont-m.jpg",
+    image: "/images/products/Ambimont-m.jpeg",
     relatedSlugs: ["amitriba-lc"],
   },
   {
@@ -159,7 +183,7 @@ export const products: Product[] = [
     storageConditions: "Store below 25°C in a dry place, protected from light",
     shelfLife: "24 months from date of manufacture",
     certifications: ["GMP", "WHO-GMP"],
-    image: "/images/products/ambifeb-40.jpg",
+    image: "/images/products/Amifeb-40.png",
     relatedSlugs: [],
   },
 ];

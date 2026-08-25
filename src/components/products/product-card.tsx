@@ -4,6 +4,7 @@ import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { useReducedMotion } from "@/lib/use-reduced-motion";
+import { ImageSlider } from "@/components/shared/image-slider";
 import type { Product } from "@/data/products";
 import { ArrowUpRight, Package } from "lucide-react";
 
@@ -63,12 +64,20 @@ export function ProductCard({ product }: ProductCardProps) {
           <div className="relative z-10">
             {/* Product image */}
             <div className="w-full aspect-square rounded-xl bg-gradient-to-br from-mist to-paper mb-4 flex items-center justify-center overflow-hidden relative">
-              {product.image ? (
+              {product.variants && product.variants.length > 0 ? (
+                <ImageSlider
+                  images={product.variants.map((v) => v.image)}
+                  alt={product.name}
+                  className="w-full h-full"
+                  imageClassName="object-cover group-hover:scale-105 transition-transform duration-500"
+                  autoPlay={false}
+                />
+              ) : product.image ? (
                 <Image
                   src={product.image}
                   alt={product.name}
                   fill
-                  className="object-contain p-4 group-hover:scale-105 transition-transform duration-500"
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               ) : (
                 <Package size={48} className="text-slate/30" />

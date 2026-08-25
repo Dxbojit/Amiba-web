@@ -8,6 +8,7 @@ import {
 } from "@/data/products";
 import { ProductCard } from "@/components/products/product-card";
 import { SectionReveal } from "@/components/shared/section-reveal";
+import { ImageSlider } from "@/components/shared/image-slider";
 import {
   Shield,
   Package,
@@ -123,12 +124,19 @@ export default async function ProductDetailPage({
               <SectionReveal>
                 {/* Product image */}
                 <div className="w-full aspect-[4/3] rounded-2xl bg-gradient-to-br from-mist to-paper mb-8 flex items-center justify-center border border-mist relative overflow-hidden">
-                  {product.image ? (
+                  {product.variants && product.variants.length > 0 ? (
+                    <ImageSlider
+                      images={product.variants.map((v) => v.image)}
+                      alt={product.name}
+                      className="w-full h-full"
+                      imageClassName="object-cover"
+                    />
+                  ) : product.image ? (
                     <Image
                       src={product.image}
                       alt={product.name}
                       fill
-                      className="object-contain p-8"
+                      className="object-cover"
                       priority
                     />
                   ) : (
@@ -178,6 +186,28 @@ export default async function ProductDetailPage({
                     ))}
                   </div>
                 </div>
+
+                {/* Variants */}
+                {product.variants && product.variants.length > 0 && (
+                  <div className="mb-12">
+                    <h2 className="text-display-md !text-xl text-ink mb-6">
+                      Available Variants
+                    </h2>
+                    <div className="border border-mist rounded-xl overflow-hidden divide-y divide-mist">
+                      {product.variants.map((variant) => (
+                        <div key={variant.name} className="p-5 flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+                          <div className="relative w-16 h-16 rounded-lg overflow-hidden border border-mist flex-shrink-0 bg-white">
+                            <Image src={variant.image} alt={variant.name} fill className="object-cover" />
+                          </div>
+                          <div>
+                            <h3 className="text-base font-semibold text-ink">{variant.name}</h3>
+                            <p className="text-sm text-slate mt-1">{variant.composition}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
 
                 {/* Certifications */}
                 <div>
