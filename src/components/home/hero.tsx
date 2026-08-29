@@ -10,11 +10,23 @@ export function Hero() {
 
   return (
     <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-clinical-navy">
-      {/* Background molecular pattern */}
-      <div className="absolute inset-0 bg-molecular opacity-30" />
+      <div className="absolute inset-0 z-0">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          className="w-full h-full object-cover"
+        >
+          <source src="/hero/A_seamless_slow_motion_abstr.mp4" type="video/mp4" />
+        </video>
+        {/* Dark overlay specifically to guarantee text readability */}
+        <div className="absolute inset-0 bg-black/60" />
+      </div>
 
-      {/* Gradient overlays */}
-      <div className="absolute inset-0 bg-gradient-to-b from-clinical-navy/50 via-transparent to-clinical-navy/80" />
+      {/* Subtle gradient overlay to blend with the bottom of the section */}
+      <div className="absolute inset-0 z-0 bg-gradient-to-b from-transparent via-transparent to-clinical-navy/90" />
 
       {/* Floating capsule shapes */}
       {!prefersReducedMotion && (
