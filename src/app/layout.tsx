@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Space_Grotesk, Inter, Fraunces } from "next/font/google";
+import { Space_Grotesk, Inter, Fraunces, Raleway } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/nav/navbar";
 import { Footer } from "@/components/footer/footer";
@@ -7,6 +7,12 @@ import { SmoothScrollProvider } from "@/lib/smooth-scroll";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const raleway = Raleway({
+  variable: "--font-raleway",
   subsets: ["latin"],
   display: "swap",
 });
@@ -96,7 +102,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${spaceGrotesk.variable} ${inter.variable} ${fraunces.variable} antialiased`}
+      className={`${spaceGrotesk.variable} ${inter.variable} ${fraunces.variable} ${raleway.variable} antialiased`}
     >
       <head>
         <script
