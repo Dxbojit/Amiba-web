@@ -30,6 +30,10 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://amiba.in"), // TODO: Replace with production domain
+  alternates: {
+    canonical: "./",
+  },
   title: {
     default: "AMIBA — Trusted B2B Pharmaceutical & Medical Supply Partner",
     template: "%s | AMIBA",
@@ -51,12 +55,21 @@ export const metadata: Metadata = {
     title: "AMIBA — Trusted B2B Pharmaceutical & Medical Supply Partner",
     description:
       "GMP-certified medicines and medical supplies for hospitals, pharmacies, and healthcare institutions across India.",
+    images: [
+      {
+        url: "/images/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "AMIBA — Trusted B2B Pharmaceutical & Medical Supply Partner",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "AMIBA — Trusted B2B Pharmaceutical & Medical Supply Partner",
     description:
       "GMP-certified medicines and medical supplies for hospitals, pharmacies, and healthcare institutions across India.",
+    images: ["/images/og-image.jpg"],
   },
 };
 
@@ -67,23 +80,21 @@ const organizationSchema = {
   name: "AMIBA Healthcare",
   description:
     "B2B pharmaceutical wholesaler supplying GMP-certified medicines and medical supplies across India.",
-  url: "https://amiba.in", // TODO: REPLACE with real domain
-  logo: "https://amiba.in/logo.png", // TODO: REPLACE
+  url: "https://amiba.in",
+  logo: "https://amiba.in/images/og-image.jpg",
   contactPoint: {
     "@type": "ContactPoint",
-    // TODO: REPLACE with real phone
-    telephone: "+91-12345-67890",
+    telephone: "+91-94340-71541",
     contactType: "sales",
     areaServed: "IN",
-    availableLanguage: ["English", "Hindi"],
+    availableLanguage: ["English", "Hindi", "Bengali"],
   },
   address: {
     "@type": "PostalAddress",
-    // TODO: REPLACE with real address
-    streetAddress: "Business District",
-    addressLocality: "Mumbai",
-    addressRegion: "Maharashtra",
-    postalCode: "400001",
+    streetAddress: "Sahid Surya Sen Path, Krishnagar",
+    addressLocality: "Nadia",
+    addressRegion: "West Bengal",
+    postalCode: "741101",
     addressCountry: "IN",
   },
 };

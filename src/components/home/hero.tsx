@@ -17,9 +17,10 @@ export function Hero() {
           muted
           playsInline
           preload="auto"
+          poster="/hero/poster.jpg"
           className="w-full h-full object-cover"
         >
-          <source src="/hero/A_seamless_slow_motion_abstr.mp4" type="video/mp4" />
+          <source src="/hero/A_seamless_slow_motion_abstr (online-video-cutter.com).mp4" type="video/mp4" />
         </video>
         {/* Dark overlay specifically to guarantee text readability */}
         <div className="absolute inset-0 bg-black/60" />
