@@ -3,7 +3,7 @@ import { products } from "@/data/products";
 
 export const dynamic = "force-static";
 
-const BASE_URL = "https://amiba.in"; // TODO: Replace with production domain
+const BASE_URL = "https://amibapharmaceuticals.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
@@ -89,7 +89,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${BASE_URL}/products/${product.slug}/`,
     lastModified: now,
     changeFrequency: "weekly" as const,
-    priority: 0.7,
+    priority: 0.8,
   }));
 
   return [...staticRoutes, ...productRoutes];

@@ -67,7 +67,7 @@ export function ProductCard({ product }: ProductCardProps) {
               {product.variants && product.variants.length > 0 ? (
                 <ImageSlider
                   images={product.variants.map((v) => v.image)}
-                  alt={product.name}
+                  alt={`${product.name} product packaging by Amiba Pharmaceuticals`}
                   className="w-full h-full"
                   imageClassName="object-cover group-hover:scale-105 transition-transform duration-500"
                   autoPlay={false}
@@ -75,7 +75,7 @@ export function ProductCard({ product }: ProductCardProps) {
               ) : product.image ? (
                 <Image
                   src={product.image}
-                  alt={product.name}
+                  alt={`${product.name} product packaging by Amiba Pharmaceuticals`}
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />

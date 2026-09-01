@@ -37,13 +37,46 @@ export async function generateMetadata({
     return { title: "Product Not Found" };
   }
 
+  const productTitle = `${product.name} - ${product.composition} | Amiba Pharmaceuticals`;
+  const productDescription = `${product.shortDescription} ${product.name} by Amiba Pharmaceuticals. Composition: ${product.composition}. ${product.certifications.join(", ")} certified.`;
+
   return {
-    title: product.name,
-    description: product.shortDescription,
+    title: productTitle,
+    description: productDescription,
+    keywords: [
+      product.name,
+      product.name.toLowerCase(),
+      product.name.replace(/[-\s]+/g, " "),
+      product.composition,
+      product.category,
+      "Amiba Pharmaceuticals",
+      "Amiba Healthcare",
+      ...product.certifications,
+    ],
+    alternates: {
+      canonical: `/products/${product.slug}`,
+    },
     openGraph: {
-      title: `${product.name} | AMIBA`,
-      description: product.shortDescription,
+      title: productTitle,
+      description: productDescription,
       type: "website",
+      url: `https://amibapharmaceuticals.com/products/${product.slug}`,
+      images: product.image
+        ? [
+            {
+              url: product.image,
+              width: 800,
+              height: 600,
+              alt: `${product.name} product packaging by Amiba Pharmaceuticals`,
+            },
+          ]
+        : undefined,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: productTitle,
+      description: product.shortDescription,
+      images: product.image ? [product.image] : undefined,
     },
   };
 }
@@ -73,13 +106,59 @@ export default async function ProductDetailPage({
     "@context": "https://schema.org",
     "@type": "Product",
     name: product.name,
-    description: product.shortDescription,
+    description: product.longDescription,
     category: product.category,
+    image: product.image
+      ? `https://amibapharmaceuticals.com${product.image}`
+      : undefined,
+    url: `https://amibapharmaceuticals.com/products/${product.slug}`,
+    sku: product.slug,
     brand: {
       "@type": "Brand",
-      name: "AMIBA Healthcare",
+      name: "Amiba Pharmaceuticals",
+    },
+    manufacturer: {
+      "@type": "Organization",
+      name: "Amiba Pharmaceuticals",
+      url: "https://amibapharmaceuticals.com",
+    },
+    offers: {
+      "@type": "Offer",
+      availability: "https://schema.org/InStock",
+      priceCurrency: "INR",
+      seller: {
+        "@type": "Organization",
+        name: "Amiba Pharmaceuticals",
+      },
     },
   };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://amibapharmaceuticals.com",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Products",
+        item: "https://amibapharmaceuticals.com/products",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: product.name,
+        item: `https://amibapharmaceuticals.com/products/${product.slug}`,
+      },
+    ],
+  };
+
+  const productImageAlt = `${product.name} packaging by Amiba Pharmaceuticals - ${product.composition}`;
 
   const specs = [
     { icon: FileText, label: "Composition", value: product.composition },
@@ -101,10 +180,23 @@ export default async function ProductDetailPage({
           __html: JSON.stringify(productSchema),
         }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema),
+        }}
+      />
 
       {/* Breadcrumb */}
       <section className="pt-20 sm:pt-28 pb-4 bg-paper">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-sm text-slate mb-2">
+            <Link href="/" className="hover:text-signal-teal transition-colors">Home</Link>
+            <span>/</span>
+            <Link href="/products" className="hover:text-signal-teal transition-colors">Products</Link>
+            <span>/</span>
+            <span className="text-ink font-medium">{product.name}</span>
+          </nav>
           <Link
             href="/products"
             className="inline-flex items-center gap-2 text-sm text-slate hover:text-signal-teal transition-colors"
@@ -127,14 +219,14 @@ export default async function ProductDetailPage({
                   {product.variants && product.variants.length > 0 ? (
                     <ImageSlider
                       images={product.variants.map((v) => v.image)}
-                      alt={product.name}
+                      alt={productImageAlt}
                       className="w-full h-full"
                       imageClassName="object-cover"
                     />
                   ) : product.image ? (
                     <Image
                       src={product.image}
-                      alt={product.name}
+                      alt={productImageAlt}
                       fill
                       className="object-cover"
                       priority
@@ -197,7 +289,7 @@ export default async function ProductDetailPage({
                       {product.variants.map((variant) => (
                         <div key={variant.name} className="p-5 flex flex-col sm:flex-row gap-4 items-start sm:items-center">
                           <div className="relative w-16 h-16 rounded-lg overflow-hidden border border-mist flex-shrink-0 bg-white">
-                            <Image src={variant.image} alt={variant.name} fill className="object-cover" />
+                            <Image src={variant.image} alt={`${variant.name} product packaging by Amiba Pharmaceuticals`} fill className="object-cover" />
                           </div>
                           <div>
                             <h3 className="text-base font-semibold text-ink">{variant.name}</h3>

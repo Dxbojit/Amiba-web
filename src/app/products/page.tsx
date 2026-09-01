@@ -5,9 +5,22 @@ import { SectionReveal } from "@/components/shared/section-reveal";
 import { CTABanner } from "@/components/shared/cta-banner";
 
 export const metadata: Metadata = {
-  title: "Products",
+  title: "Products - Ramiba DSR, Prazmo-D, MB-Gold, Ibator & More",
   description:
-    "Browse AMIBA's curated catalog of GMP-certified pharmaceuticals, surgical consumables, PPE, and diagnostic devices for institutional buyers.",
+    "Browse Amiba Pharmaceuticals' curated catalog of GMP-certified medicines including Ramiba DSR, Prazmo-D, MB-Gold, Ibator, Amitriba-LC, Ami-Folic, Ambimont-M, and Ambifeb 40. WHO-GMP certified pharmaceutical products for institutional buyers.",
+  keywords: [
+    "Ramiba DSR",
+    "Prazmo-D",
+    "MB-Gold",
+    "Ibator",
+    "Amitriba-LC",
+    "Ami-Folic",
+    "Ambimont-M",
+    "Ambifeb 40",
+    "Amiba Pharmaceuticals products",
+    "GMP certified medicines",
+    "pharmaceutical products India",
+  ],
 };
 
 export default function ProductsPage() {
